@@ -1,0 +1,80 @@
+---
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag, title, subtitle, desc1, desc2, desc3, desc4,
+  ctaBoxTag, ctaTitle, ctaDesc,
+  discordLabel, twitterLabel, githubLabel
+} = lpContent.aboutDevelopment;
+---
+
+<section id="about-development" class="py-24 px-6 lg:px-16 border-b border-border-color bg-bg-dark/20">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    
+    <!-- Left Side: Policy Text -->
+    <div class="col-span-1 lg:col-span-7 space-y-6">
+      <div class="space-y-2">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {tag}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {title}
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-text-secondary font-light leading-relaxed max-w-2xl">
+        <p class="m-0 text-[15px] whitespace-pre-line">
+          {subtitle}
+        </p>
+        <p class="m-0 text-[15px] whitespace-pre-line">
+          {desc1}
+        </p>
+        <p class="m-0 text-[15px] whitespace-pre-line">
+          {desc2}
+        </p>
+        {desc3 && (
+          <p class="m-0 text-[15px] whitespace-pre-line">
+            {desc3}
+          </p>
+        )}
+        {desc4 && (
+          <p class="m-0 text-[15px] whitespace-pre-line">
+            {desc4}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <!-- Right Side: Community CTA Links -->
+    <div class="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-6">
+      
+      <!-- Box Callout -->
+      <div class="border border-border-color bg-bg-card/30 p-6 rounded-md space-y-6">
+        <div class="space-y-2">
+          <span class="font-mono text-[9px] text-accent-orange font-bold uppercase">{ctaBoxTag}</span>
+          <h4 class="text-md font-semibold text-white">{ctaTitle}</h4>
+          <p class="text-xs text-text-secondary font-light">
+            {ctaDesc}
+          </p>
+        </div>
+
+        <div class="flex flex-col space-y-3">
+          <a href="https://discord.gg/pitsboard" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-4 py-3 bg-[#5865F2] hover:bg-[#5865F2]/90 text-white rounded text-xs font-mono font-semibold tracking-wider transition-colors">
+            <span>{discordLabel}</span>
+            <span>→</span>
+          </a>
+          <a href="https://x.com/pitsboard" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-4 py-3 border border-border-color bg-bg-dark/40 hover:bg-border-color/30 text-white rounded text-xs font-mono font-semibold tracking-wider transition-colors">
+            <span>{twitterLabel}</span>
+            <span>→</span>
+          </a>
+          <div class="flex items-center justify-between px-4 py-3 border border-border-color/40 bg-bg-dark/20 text-text-muted/60 rounded text-xs font-mono font-semibold tracking-wider opacity-40 cursor-not-allowed select-none">
+            <span>{githubLabel}</span>
+            <span class="text-[10px]">SOON</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

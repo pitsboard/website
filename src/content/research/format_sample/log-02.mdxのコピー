@@ -1,0 +1,27 @@
+---
+title: "Dynamiclandにインスパイアされた物理配置の空間マッピング"
+publishDate: "2026-05-20"
+author: "Elena Rostov"
+summary: "PitsBoardの筐体同士の相対的な距離や向きをカメラと赤外線マーカーで検出し、空間UIとしてマッピングするオープン実験。"
+tags: ["Interaction", "Spatial Computing", "Dynamicland"]
+---
+
+import IndicatorLight from '../../components/IndicatorLight.astro';
+
+PitsBoardはテーブルの上に静止するだけではありません。私たちは、Bret Victor率いる **Dynamicland** の思想に共鳴し、ハードウェアが配置された「部屋全体の空間コンテキスト」を入力値として抽出するシステムを構築しています。
+
+<IndicatorLight color="orange" label="Lab Test Phase-2" pulse={true} />
+
+### 物理的な配置によるデータフロー
+
+机の上に置かれた2台のPitsBoard-0の間に、別の物理モジュールを置くことで、まるで紙を繋ぐようにデジタル上のシグナルパス（配線）が自動で結ばれる実験を行いました。
+これは、Nothingのシンプリシティや、Obsidianのノードグラフ表示の概念を「現実世界」に拡張する実験です。
+
+```
+ [ PitsBoard A ]  =======>  [ 物理カプラモジュール ]  =======>  [ PitsBoard B ]
+  (音源生成器)                (ローパスフィルタ)                  (エフェクト出力)
+```
+
+このシステムにより、画面でマウスを使ってケーブルを繋ぐ代わりに、机の上のブロックを並べ替えるだけでシンセサイザーのオーディオ経路やコード生成の流れ（ノード）をプログラミングできます。
+これは人間が本来得意とする「物理空間での整理」能力をコンピュータ操作にフルに適用する試みです。
+現時点での赤外線追従精度は 1.2mm を達成しており、プロトタイプとして非常に実用的です。

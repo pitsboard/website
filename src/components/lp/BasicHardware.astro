@@ -1,0 +1,60 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag,
+  title,
+  subtitle,
+  desc1,
+  desc2,
+  topCoverLabel,
+  topCoverDesc,
+  railLayerLabel,
+  railLayerDesc,
+  mcuPcbLabel,
+  mcuPcbDesc,
+  baseChassisLabel,
+  baseChassisDesc
+} = lpContent.basicHardware;
+---
+
+<section id="basic-hardware" class="py-24 px-6 lg:px-16 border-b border-border-color bg-bg-dark/10">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    
+    <!-- Left Side: Explanation -->
+    <div class="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-6 order-1 lg:order-1">
+      <div class="space-y-2">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {tag}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {title}
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-text-secondary font-light leading-relaxed max-w-2xl">
+        <p class="m-0 text-[15px]">
+          {subtitle}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc1}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc2}
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Side: Hardware Exploded View Placeholder -->
+    <div class="col-span-1 lg:col-span-7 flex justify-center order-2 lg:order-2">
+      <ImagePlaceholder
+        aspectRatio="aspect-[3/2]"
+        label="HARDWARE EXPLODED VIEW"
+        desc="Exploded layer diagram of PitsBoard chassis."
+        className="w-full max-w-[650px]"
+      />
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,116 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import lpContent from '../../data/lp-content.json';
+
+const { tag, title, subtitle, profiles } = lpContent.overlayExamples;
+---
+
+<section id="overlay-examples" class="pb-24 pt-12 px-6 lg:px-16 border-b border-border-color bg-bg-dark/10">
+  <div class="max-w-7xl w-full mx-auto space-y-24">
+    
+    <!-- Part 1: HUD Profile Examples -->
+    <div class="space-y-16">
+      <!-- Title Section -->
+      <div class="space-y-4 max-w-3xl">
+        <span class="font-mono text-[9px] text-accent-orange font-bold uppercase tracking-wider block">
+          {tag.replace(/^\d+\s*\/\/\s*/, '')}
+        </span>
+        <h4 class="text-xl font-bold text-white uppercase font-header m-0">
+          {title}
+        </h4>
+        <p class="text-sm text-text-secondary leading-relaxed font-light">
+          {subtitle}
+        </p>
+      </div>
+
+      <!-- 4-Grid HUD Examples -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Example 1: Image Editing -->
+        <div
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          data-img-src="/images/placeholders/overlay-profile-01_800x450_16-9.png"
+        >
+          <div class="pointer-events-none">
+            <ImagePlaceholder aspectRatio="aspect-video" label="FIGMA PROFILE UI" desc="Figma control overlay workspace layout." className="w-full border-none bg-bg-dark/50" />
+          </div>
+          <div class="space-y-3 pointer-events-none">
+            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[0].label}</span>
+          </div>
+        </div>
+
+        <!-- Example 2: 3D Modeling -->
+        <div
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          data-img-src="/images/placeholders/overlay-profile-02_800x450_16-9.png"
+        >
+          <div class="pointer-events-none">
+            <ImagePlaceholder aspectRatio="aspect-video" label="BLENDER PROFILE UI" desc="Blender 3D view control overlay layout." className="w-full border-none bg-bg-dark/50" />
+          </div>
+          <div class="space-y-3 pointer-events-none">
+            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[1].label}</span>
+          </div>
+        </div>
+
+        <!-- Example 3: Music Production -->
+        <div
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          data-img-src="/images/placeholders/overlay-profile-03_800x450_16-9.png"
+        >
+          <div class="pointer-events-none">
+            <ImagePlaceholder aspectRatio="aspect-video" label="VSCODE PROFILE UI" desc="VS Code editor editor mapping layout." className="w-full border-none bg-bg-dark/50" />
+          </div>
+          <div class="space-y-3 pointer-events-none">
+            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[2].label}</span>
+          </div>
+        </div>
+
+        <!-- Example 4: Video Editing -->
+        <div
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          data-img-src="/images/placeholders/overlay-profile-04_800x450_16-9.png"
+        >
+          <div class="pointer-events-none">
+            <ImagePlaceholder aspectRatio="aspect-video" label="SPOTIFY PROFILE UI" desc="Spotify system-level mapping profile." className="w-full border-none bg-bg-dark/50" />
+          </div>
+          <div class="space-y-3 pointer-events-none">
+            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[3].label}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const overlayMainImg = document.getElementById('overlay-main-img') as HTMLImageElement | null;
+  const exampleCards = document.querySelectorAll('.overlay-example-card');
+
+  if (overlayMainImg && exampleCards.length > 0) {
+    exampleCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const imgSrc = card.getAttribute('data-img-src');
+
+        if (imgSrc) {
+          // Highlight active card
+          exampleCards.forEach(c => {
+            c.classList.remove('border-accent-orange', 'bg-bg-card/50', 'ring-1', 'ring-accent-orange/50');
+            c.classList.add('border-border-color', 'bg-bg-card/25');
+          });
+          card.classList.remove('border-border-color', 'bg-bg-card/25');
+          card.classList.add('border-accent-orange', 'bg-bg-card/50', 'ring-1', 'ring-accent-orange/50');
+
+          // Smooth image fade transition on Contextual Overlay main image
+          overlayMainImg.classList.add('opacity-0');
+
+          setTimeout(() => {
+            overlayMainImg.src = imgSrc;
+            overlayMainImg.classList.remove('opacity-0');
+          }, 150);
+        }
+      });
+    });
+  }
+</script>

@@ -1,0 +1,71 @@
+---
+interface Props {
+  color?: 'red' | 'green' | 'blue' | 'orange';
+  label?: string;
+  pulse?: boolean;
+}
+
+const {
+  color = 'red',
+  label = '',
+  pulse = true
+} = Astro.props;
+
+const colors = {
+  red: '#FF3B30',
+  green: '#34C759',
+  blue: '#007AFF',
+  orange: '#FF5E00'
+};
+
+const hexColor = colors[color];
+---
+
+<div class="indicator-wrapper">
+  <span 
+    class={`led-dot ${pulse ? 'pulse' : ''}`} 
+    style={`--led-color: ${hexColor};`}
+  ></span>
+  {label && <span class="led-label">{label}</span>}
+</div>
+
+<style>
+  .indicator-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+  }
+
+  .led-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--led-color);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .led-dot.pulse {
+    animation: ledPulse 1.5s infinite alternate ease-in-out;
+  }
+
+  .led-label {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  @keyframes ledPulse {
+    0% {
+      opacity: 0.4;
+      transform: scale(0.9);
+      box-shadow: 0 0 1px var(--led-color);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.1);
+      box-shadow: 0 0 5px var(--led-color);
+    }
+  }
+</style>

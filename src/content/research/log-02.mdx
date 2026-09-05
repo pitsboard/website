@@ -1,0 +1,286 @@
+---
+title: "Don’t Stop at Building the Physical Interface"
+publishDate: "2026-09-02"
+author: "PitsBoard"
+summary: "Why PitsBoard is being designed not only as a hardware device, but as a way to make physical interaction ideas easier to reuse, extend, and share."
+tags: ["PitsBoard", "Open Source", "HCI", "Interaction"]
+---
+
+When I look through YouTube or GitHub, I am constantly surprised by how many people are building their own input devices.
+
+Custom knobs.
+
+Macro pads.
+
+Foot controllers.
+
+Gesture interfaces.
+
+IMU-based devices.
+
+Custom game controllers.
+
+Things that would have required fairly specialized knowledge only a few years ago are becoming much more accessible to individuals.
+
+Development boards and single-board computers such as Raspberry Pi and Arduino are inexpensive and easy to obtain.
+
+Sensors are widely available.
+
+3D printers are becoming common.
+
+PCBs can be ordered in very small quantities.
+
+And with AI, it is increasingly possible to experiment with unfamiliar sensors, APIs, and libraries while learning and writing the code at the same time.
+
+The cost of creating a custom physical interface is falling rapidly.
+
+I think the number of people capable of building physical interfaces will continue to grow.
+
+But many of those interfaces still remain as a single project.
+
+### The device can be shared, but the accumulated work is harder to reuse
+
+A typical custom interface might look something like this:
+
+**Sensor → Arduino / MCU → Python or custom application → Specific action**
+
+One person builds the entire chain.
+
+When it works, the result can be extremely interesting.
+
+But the software is often tightly connected to a particular piece of hardware, a particular application, and the environment of the person who created it.
+
+For someone else to reuse the idea, they may need to:
+
+- understand the wiring
+- modify the firmware
+- rewrite a Python script
+- fix OS-specific behavior
+- redefine commands for their own application
+
+As a result, even very good interaction ideas sometimes remain inside the original project.
+
+I think that is a missed opportunity.
+
+### Not everyone needs to build everything
+
+One of the ideas behind PitsBoard is to treat a physical interface as a collection of more independent parts.
+
+For example:
+
+- Hardware
+- Device Adapter / Protocol
+- Interaction
+- Profile
+- Overlay
+- Command
+- Action Overlay
+- Plate / Physical Layout
+
+The goal is to separate these pieces as much as reasonably possible.
+
+If that works, not everyone needs to build the entire stack.
+
+Someone who enjoys hardware can create a new device.
+
+Someone interested in interaction design can create a new way of using that device.
+
+Someone with UI experience can design an Overlay.
+
+Someone who knows Blender well can create a Blender Profile.
+
+Someone skilled in 3D modeling can create a new physical Plate.
+
+If each contribution can exist as a reusable piece, other people can combine those pieces in different ways.
+
+This is an idea that became increasingly important to me while building PitsBoard.
+
+### Creating things that can outlive the hardware
+
+Hardware has a limited lifetime.
+
+Sensors change.
+
+Microcontrollers change.
+
+Enclosures are redesigned.
+
+Manufacturing methods improve.
+
+But an Interaction or Profile created by a user should not necessarily become obsolete every time the hardware changes.
+
+For that to happen, those assets need to be separated from the specific device as much as possible.
+
+An Interaction created for the current PitsBoard should ideally continue to work on a future generation of PitsBoard.
+
+And if the requirements match, perhaps it could also work with a completely different physical interface.
+
+If that becomes possible, things created by the community stop being simply "configuration files for this product."
+
+They can gradually become a reusable library.
+
+For PitsBoard, I do not think the number of hardware units should be the only measure of progress.
+
+How much reusable work has accumulated?
+
+I think that matters too.
+
+### What MIDI and CUDA can teach us
+
+The fields are very different, but MIDI is an interesting example.
+
+Electronic instruments have changed enormously over several decades.
+
+But because devices can communicate using a common representation, new instruments can continue to work with older equipment, and new software can continue to interact with hardware designed many years earlier.
+
+NVIDIA CUDA is interesting for a different reason.
+
+Much of CUDA's strength does not come only from the GPU hardware itself.
+
+It also comes from the enormous amount of software, libraries, tools, documentation, and developer knowledge that has accumulated around it.
+
+Once enough useful assets exist in one environment, those assets themselves make the environment more valuable to the next person who arrives.
+
+I am obviously not suggesting that PitsBoard is trying to become something on the scale of MIDI or CUDA.
+
+The useful lesson is much simpler:
+
+The long-term value of a hardware platform can come not only from the hardware, but from everything that accumulates around it.
+
+### It does not need to become a PitsBoard-only world
+
+For now, the priority is simply to make PitsBoard itself work well.
+
+I do not plan to support every possible device from the beginning.
+
+I also do not plan to officially build adapters for every existing product.
+
+One reason PitsBoard exists in the first place is to reduce the need to build an entire physical interface from scratch.
+
+But I also do not see a reason to make the Protocol or Interaction system inside PitsBoard unnecessarily closed.
+
+If someone wants to connect a completely custom device, there should be room for that.
+
+If someone creates an Adapter for an existing device, that could be interesting too.
+
+If another manufacturer eventually wants to use the same format, I would prefer the architecture to allow that rather than prevent it.
+
+PitsBoard does not need to become the only physical interface.
+
+PitsBoard itself can simply be one physical interface among many.
+
+What becomes more interesting is the possibility that Interaction assets could move between them.
+
+### Why make parts of it open?
+
+I do not think the purpose of open source is simply to make everything free, or to require everyone to build everything themselves.
+
+One of the main reasons is to make it possible to create things that one person or one team would never think of alone.
+
+The person building PitsBoard does not need to be an expert in every DAW.
+
+Or every game UI.
+
+Or 3D CAD.
+
+Or accessibility.
+
+Or research applications.
+
+There are people who understand each of those areas far better.
+
+If they can contribute only the part they know well, the range of things that can be explored becomes much larger than what a single PitsBoard team could design by itself.
+
+The same is true for parts of the system where the correct design is still uncertain.
+
+Event Protocol.
+
+Context.
+
+Interaction.
+
+Command.
+
+Rather than pretending that all of these can be perfectly defined in advance, it may be better to improve them through actual use.
+
+"This Event is missing."
+
+"This Context cannot be detected properly on this OS."
+
+"This Interaction could be abstracted further."
+
+Those kinds of discussions can lead to a better system over time.
+
+The balance I currently have in mind is simple:
+
+**Be careful with the Core. Keep experimental parts flexible.**
+
+### PitsBoard can be both a product and an experimental platform
+
+With PitsBoard, I want to build hardware that allows people to try new forms of physical interaction without first having to build the entire physical interface themselves.
+
+At the same time, I want that hardware to provide an environment where new Interactions can be tested.
+
+And ideally, the Interactions, Profiles, Plates, and Overlays created during that process can become starting points for someone else.
+
+A possible path might look like this:
+
+**Use something someone else made**
+
+↓
+
+**Customize it slightly**
+
+↓
+
+**Create a new Interaction**
+
+↓
+
+**Build a new Physical Interface**
+
+Not everyone needs to move through every stage.
+
+Most people should be able to simply use something that already exists.
+
+That is completely fine.
+
+But if a smaller group creates new things, and those things can then be reused by many others, a useful cycle begins to form.
+
+If that happens, PitsBoard could become something a little more interesting than a single input device.
+
+### Starting with a small library
+
+I am not trying to build a giant platform from the beginning.
+
+The starting point is much smaller.
+
+There is PitsBoard hardware.
+
+A handful of Interactions work on top of it.
+
+Profiles and Overlays can be shared.
+
+That is enough to begin.
+
+If someone eventually creates a new Interaction, that would be great.
+
+If someone creates a new Plate, that would be great too.
+
+And if that library gradually becomes large enough, the value of PitsBoard may eventually come not only from owning the hardware, but from the fact that:
+
+**There are many things you can use with it.**
+
+The technologies needed to create physical interfaces are becoming dramatically more accessible.
+
+The next challenge may not simply be helping more people build them.
+
+It may be creating a way for what they build to continue beyond a single project.
+
+To keep the idea reusable.
+
+To let someone else extend it.
+
+To avoid ending every physical interface with the person who originally made it.
+
+That is another possibility I want to explore with PitsBoard.

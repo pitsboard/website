@@ -1,0 +1,37 @@
+---
+title: "光学式エンコーダによる触覚フィードバックのプロトタイプ"
+publishDate: "2026-05-12"
+author: "Dr. Kenji Sato"
+summary: "PitsBoardのダイヤルモジュールに精密な物理クリック感を電気的かつ動的に発生させる、新しい磁気触覚機構の実験レポート。"
+tags: ["Hardware", "Haptics", "Prototype"]
+---
+
+import IndicatorLight from '../../components/IndicatorLight.astro';
+
+PitsBoardのダイヤル（M.01）に、回すアプリケーションに応じて**触覚摩擦を動的に制御する機構**を組み込む実験を行いました。
+これはTeenage Engineeringのハードウェアが持つ官能的な操作感と、デジタル情報が持つ「目盛りの数」を完全に一致させるための試みです。
+
+<IndicatorLight color="green" label="Prototype-Alpha Running" pulse={true} />
+
+### 磁力式ハプティックブレーキ
+
+私たちは、極小の電磁ブレーキをダイヤル軸に配置し、マイクロコントローラからのPWM信号で制動力をミリ秒単位で変更できるようにしました。
+これにより、以下のような動作が可能になります。
+
+1. **無段階ボリューム**: 摩擦ゼロの極めてスムースな回転。
+2. **24段階クリック**: 一般的なアナログ時計のような細かいカチカチ感。
+3. **境界ロック**: 設定可能な最大値（例: 100%）に達した瞬間、物理的にそれ以上回らなくなるハードストップ効果。
+
+```cpp
+// 触覚クリックパルスの制御コード断片
+void trigger_haptic_click(int position) {
+  if (position >= MAX_LIMIT) {
+    apply_electromagnetic_brake(100); // 100%ロック
+  } else {
+    pulse_brake_coil(15); // 微弱クリック感
+  }
+}
+```
+
+この機構により、音量調整ではスムーズに回り、リスト選択では選択項目数に合わせたピッタリのクリック数で回転する、究極にインテリジェントなノブが実現します。
+次回のログでは、この制動力に対するユーザーテストの評価値を共有します。

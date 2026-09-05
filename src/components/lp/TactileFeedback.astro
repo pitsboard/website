@@ -1,0 +1,211 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import lpContent from '../../data/lp-content.json';
+
+const { 
+  tactile, demos
+} = lpContent.whatCanItControl;
+---
+
+<section id="tactile-feedback" class="py-24 px-6 lg:px-16 border-b border-border-color bg-bg-dark/5">
+  <div class="max-w-7xl w-full mx-auto space-y-24">
+    
+    <!-- Part 3: Physical Interactions & Tactile Demos -->
+    <div class="space-y-16">
+      
+      <!-- Tactile Hero Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="col-span-1 lg:col-span-6 flex flex-col justify-center space-y-4">
+          <span class="font-mono text-[9px] text-accent-orange font-bold uppercase tracking-wider block">{tactile.tag}</span>
+          <h4 class="text-xl font-bold text-white uppercase font-header m-0">{tactile.title}</h4>
+          <p class="text-sm text-text-secondary leading-relaxed font-light">
+            {tactile.desc}
+          </p>
+        </div>
+        <div class="col-span-1 lg:col-span-6">
+          <div class="relative w-full aspect-video rounded border border-border-color bg-bg-card/30 overflow-hidden group">
+            <video
+              id="tactile-hero-video"
+              poster="/images/placeholders/overlay-examples-tactile-demo_800x450_16-9.png"
+              playsinline
+              loop
+              muted
+              class="w-full h-full object-cover transition-opacity duration-300 opacity-100"
+            >
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-Grid Interaction Details (Sorted: Trackpad -> copypaste -> dialselect -> shortcut) -->
+      <div class="space-y-6 pt-4">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          
+          <!-- 1: Trackpad (m01: FREE MOVE) -->
+          <div
+            class="tactile-card border border-border-color bg-bg-card/10 rounded-sm p-4 hover:border-accent-orange/40 transition-all flex flex-col justify-between h-full cursor-pointer group"
+            data-video-src="/videos/trackpad.mp4"
+            data-poster-src="/images/placeholders/overlay-examples-key-press_800x450_16-9.png"
+          >
+            <div class="space-y-3">
+              <div class="aspect-video bg-bg-dark/40 border border-border-color/60 rounded flex items-center justify-center relative overflow-hidden">
+                <ImagePlaceholder aspectRatio="aspect-video" label="KEY PRESS VIDEO" desc="Demo of mechanical key strike." className="w-full h-full border-none" />
+                
+                <!-- Play Button Overlay on Thumbnail Card -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none z-10">
+                  <div class="w-9 h-9 rounded-full border border-white/30 bg-black/60 flex items-center justify-center text-white backdrop-blur-sm shadow-md group-hover:scale-110 group-hover:border-accent-orange/60 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5 text-accent-orange">
+                      <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-1 right-1 font-mono text-[7px] bg-bg-card px-1 py-0.5 rounded text-accent-red z-10">MP4</div>
+              </div>
+              <div class="space-y-1 pointer-events-none">
+                <span class="font-mono text-[9px] text-accent-orange font-bold uppercase">{demos.m01Label}</span>
+                <h4 class="text-xs font-semibold text-white m-0">{demos.m01Title}</h4>
+                <p class="text-[11px] text-text-secondary font-light leading-snug">
+                  {demos.m01Desc}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2: copypaste (m02: PRESS COMMAND) -->
+          <div
+            class="tactile-card border border-border-color bg-bg-card/10 rounded-sm p-4 hover:border-accent-orange/40 transition-all flex flex-col justify-between h-full cursor-pointer group"
+            data-video-src="/videos/copypaste.mp4"
+            data-poster-src="/images/placeholders/overlay-examples-knob-push_800x450_16-9.png"
+          >
+            <div class="space-y-3">
+              <div class="aspect-video bg-bg-dark/40 border border-border-color/60 rounded flex items-center justify-center relative overflow-hidden">
+                <ImagePlaceholder aspectRatio="aspect-video" label="KNOB PUSH VIDEO" desc="Demo of press action." className="w-full h-full border-none" />
+                
+                <!-- Play Button Overlay on Thumbnail Card -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none z-10">
+                  <div class="w-9 h-9 rounded-full border border-white/30 bg-black/60 flex items-center justify-center text-white backdrop-blur-sm shadow-md group-hover:scale-110 group-hover:border-accent-orange/60 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5 text-accent-orange">
+                      <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-1 right-1 font-mono text-[7px] bg-bg-card px-1 py-0.5 rounded text-accent-red z-10">MP4</div>
+              </div>
+              <div class="space-y-1 pointer-events-none">
+                <span class="font-mono text-[9px] text-accent-orange font-bold uppercase">{demos.m02Label}</span>
+                <h4 class="text-xs font-semibold text-white m-0">{demos.m02Title}</h4>
+                <p class="text-[11px] text-text-secondary font-light leading-snug">
+                  {demos.m02Desc}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3: dialselect (m03: DIAL SELECT) -->
+          <div
+            class="tactile-card border border-border-color bg-bg-card/10 rounded-sm p-4 hover:border-accent-orange/40 transition-all flex flex-col justify-between h-full cursor-pointer group"
+            data-video-src="/videos/dialselect.mp4"
+            data-poster-src="/images/placeholders/overlay-examples-knob-rotate_800x450_16-9.png"
+          >
+            <div class="space-y-3">
+              <div class="aspect-video bg-bg-dark/40 border border-border-color/60 rounded flex items-center justify-center relative overflow-hidden">
+                <ImagePlaceholder aspectRatio="aspect-video" label="KNOB ROTATE VIDEO" desc="Demo of rotation value change." className="w-full h-full border-none" />
+                
+                <!-- Play Button Overlay on Thumbnail Card -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none z-10">
+                  <div class="w-9 h-9 rounded-full border border-white/30 bg-black/60 flex items-center justify-center text-white backdrop-blur-sm shadow-md group-hover:scale-110 group-hover:border-accent-orange/60 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5 text-accent-orange">
+                      <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-1 right-1 font-mono text-[7px] bg-bg-card px-1 py-0.5 rounded text-accent-red z-10">MP4</div>
+              </div>
+              <div class="space-y-1 pointer-events-none">
+                <span class="font-mono text-[9px] text-accent-orange font-bold uppercase">{demos.m03Label}</span>
+                <h4 class="text-xs font-semibold text-white m-0">{demos.m03Title}</h4>
+                <p class="text-[11px] text-text-secondary font-light leading-snug">
+                  {demos.m03Desc}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4: shortcut (m04: SHORTCUT SLIDE) -->
+          <div
+            class="tactile-card border border-border-color bg-bg-card/10 rounded-sm p-4 hover:border-accent-orange/40 transition-all flex flex-col justify-between h-full cursor-pointer group"
+            data-video-src="/videos/shortcut.mp4"
+            data-poster-src="/images/placeholders/overlay-examples-slider-drag_800x450_16-9.png"
+          >
+            <div class="space-y-3">
+              <div class="aspect-video bg-bg-dark/40 border border-border-color/60 rounded flex items-center justify-center relative overflow-hidden">
+                <ImagePlaceholder aspectRatio="aspect-video" label="SLIDER DRAG VIDEO" desc="Demo of linear slide." className="w-full h-full border-none" />
+                
+                <!-- Play Button Overlay on Thumbnail Card -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none z-10">
+                  <div class="w-9 h-9 rounded-full border border-white/30 bg-black/60 flex items-center justify-center text-white backdrop-blur-sm shadow-md group-hover:scale-110 group-hover:border-accent-orange/60 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5 text-accent-orange">
+                      <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-1 right-1 font-mono text-[7px] bg-bg-card px-1 py-0.5 rounded text-accent-red z-10">MP4</div>
+              </div>
+              <div class="space-y-1 pointer-events-none">
+                <span class="font-mono text-[9px] text-accent-orange font-bold uppercase">{demos.m04Label}</span>
+                <h4 class="text-xs font-semibold text-white m-0">{demos.m04Title}</h4>
+                <p class="text-[11px] text-text-secondary font-light leading-snug">
+                  {demos.m04Desc}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const heroVideo = document.getElementById('tactile-hero-video') as HTMLVideoElement | null;
+  const tactileCards = document.querySelectorAll('.tactile-card');
+
+  if (heroVideo && tactileCards.length > 0) {
+    tactileCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const videoSrc = card.getAttribute('data-video-src');
+        const posterSrc = card.getAttribute('data-poster-src');
+
+        if (videoSrc) {
+          // Highlight active card
+          tactileCards.forEach(c => {
+            c.classList.remove('border-accent-orange', 'bg-bg-card/40', 'ring-1', 'ring-accent-orange/50');
+            c.classList.add('border-border-color', 'bg-bg-card/10');
+          });
+          card.classList.remove('border-border-color', 'bg-bg-card/10');
+          card.classList.add('border-accent-orange', 'bg-bg-card/40', 'ring-1', 'ring-accent-orange/50');
+
+          // Smooth transition & playback on top video player
+          heroVideo.classList.add('opacity-0');
+
+          setTimeout(() => {
+            if (posterSrc) {
+              heroVideo.poster = posterSrc;
+            }
+            heroVideo.src = videoSrc;
+            heroVideo.load();
+            heroVideo.play().catch(() => {});
+            heroVideo.classList.remove('opacity-0');
+          }, 150);
+        }
+      });
+    });
+  }
+</script>

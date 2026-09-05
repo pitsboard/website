@@ -1,0 +1,67 @@
+---
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag,
+  title,
+  subtitle,
+  howForceInputWorksTitle,
+  howItFeelsTitle,
+  placeholderText1,
+  placeholderText2
+} = lpContent.forceTouch;
+---
+
+<section id="force-touch" class="py-24 px-6 lg:px-16 border-b border-border-color bg-bg-dark/10">
+  <div class="max-w-7xl w-full mx-auto space-y-16">
+    
+    <!-- Title Section -->
+    <div class="space-y-4 max-w-3xl">
+      <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+        {tag}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+        {title}
+      </h2>
+      <p class="text-[15px] text-text-secondary font-light">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Simplified 2-Column Layout (Left: Explanation Cards, Right: Visual Graphic) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-4">
+      
+      <!-- Left Column: Explanation Blocks (6 cols) -->
+      <div class="lg:col-span-6 space-y-6">
+        
+        <!-- Block 1: Force Input -->
+        <div class="border border-border-color bg-bg-card/10 rounded-2xl p-6 hover:border-accent-orange/15 transition-all">
+          <h3 class="text-xl font-bold text-white uppercase font-header m-0 mb-3 tracking-wide">{howForceInputWorksTitle}</h3>
+          <p class="text-[13px] text-text-secondary font-light leading-relaxed m-0">
+            {placeholderText1}
+          </p>
+        </div>
+
+        <!-- Block 2: Haptic Feedback -->
+        <div class="border border-border-color bg-bg-card/10 rounded-2xl p-6 hover:border-accent-orange/15 transition-all">
+          <h3 class="text-xl font-bold text-white uppercase font-header m-0 mb-3 tracking-wide">{howItFeelsTitle}</h3>
+          <p class="text-[13px] text-text-secondary font-light leading-relaxed m-0">
+            {placeholderText2}
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Visual Graphic (6 cols) -->
+      <div class="lg:col-span-6 flex justify-center items-center">
+        <img 
+          src="/images/placeholders/force-haptic-graphic.png" 
+          alt="Force Touch & Haptic Feedback Graphic" 
+          class="w-full max-w-[480px] h-auto object-contain select-none"
+        />
+      </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag,
+  title,
+  subtitle,
+  desc1,
+  desc2,
+  list1,
+  list2,
+  list3
+} = lpContent.overlay;
+---
+
+<section id="overlay-ui" class="pt-24 pb-12 px-6 lg:px-16 bg-bg-dark/10 overflow-hidden">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    
+    <!-- Left Side: Explanation Text -->
+    <div class="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-6">
+      <div class="space-y-2">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {tag}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {title}
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-text-secondary font-light leading-relaxed max-w-2xl">
+        <p class="m-0 text-[15px]">
+          {subtitle}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc1}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc2}
+        </p>
+      </div>
+
+      <div class="border-t border-border-color/60 pt-4 text-[13px] text-text-muted leading-relaxed font-light">
+        <p class="m-0">
+          Currently available for macOS. Windows and Linux support are planned.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Side: Overlay UI Main Image (Dynamic Switcher) -->
+    <div class="col-span-1 lg:col-span-7 flex justify-center">
+      <div class="relative w-full max-w-[550px] aspect-[16/10] border border-border-color bg-bg-card/40 rounded-sm overflow-hidden group hover:border-accent-orange/40 transition-colors">
+        <img
+          id="overlay-main-img"
+          src="/images/placeholders/overlay-ui-screenshot_800x500_16-10.png"
+          alt="Overlay UI Screenshot"
+          class="w-full h-full object-cover transition-opacity duration-300 opacity-100"
+        />
+      </div>
+    </div>
+
+
+  </div>
+</section>

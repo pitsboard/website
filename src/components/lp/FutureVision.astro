@@ -1,0 +1,66 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import lpContent from '../../data/lp-content.json';
+
+const { tag, title, subtitle, p1Desc, p2Desc, p3Desc, phase1Label, phase1Date, phase1Title, phase2Label, phase2Date, phase2Title, phase3Label, phase3Date, phase3Title } = lpContent.futureVision;
+---
+
+<section id="future-vision" class="py-24 px-6 lg:px-16 border-b border-border-color">
+  <div class="max-w-7xl w-full mx-auto space-y-16">
+    
+    <!-- Title Section -->
+    <div class="space-y-4 max-w-3xl">
+      <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+        {tag}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+        {title}
+      </h2>
+      <p class="text-[15px] text-text-secondary font-light">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- 3-Phase Roadmap Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      
+      <!-- Phase 1: Developer Kit -->
+      <div class="border border-border-color bg-bg-card/20 rounded-md p-6 space-y-4 relative z-10 hover:border-accent-orange/20 transition-colors">
+        <ImagePlaceholder aspectRatio="aspect-video" label="ROADMAP PHASE 01" desc="Developer kit launch details." className="w-full border-none bg-bg-dark/50" />
+        
+        <h3 class="text-lg font-bold text-white font-header uppercase">{phase1Title}</h3>
+        <div class="w-full h-1 bg-accent-orange rounded-full"></div>
+        
+        <p class="text-xs text-text-secondary font-light leading-relaxed">
+          {p1Desc}
+        </p>
+      </div>
+
+      <!-- Phase 2: Ecosystem -->
+      <div class="border border-border-color bg-bg-card/20 rounded-md p-6 space-y-4 relative z-10 hover:border-accent-orange/20 transition-colors">
+        <ImagePlaceholder aspectRatio="aspect-video" label="ROADMAP PHASE 02" desc="Ecosystem integration details." className="w-full border-none bg-bg-dark/50" />
+        
+        <h3 class="text-lg font-bold text-white font-header uppercase">{phase2Title}</h3>
+        <div class="w-full h-1 bg-accent-red rounded-full"></div>
+        
+        <p class="text-xs text-text-secondary font-light leading-relaxed">
+          {p2Desc}
+        </p>
+      </div>
+
+      <!-- Phase 3: Spatial Computing -->
+      <div class="border border-border-color bg-bg-card/20 rounded-md p-6 space-y-4 relative z-10 hover:border-accent-orange/20 transition-colors">
+        <ImagePlaceholder aspectRatio="aspect-video" label="ROADMAP PHASE 03" desc="Spatial computing expansion." className="w-full border-none bg-bg-dark/50" />
+        
+        <h3 class="text-lg font-bold text-white font-header uppercase">{phase3Title}</h3>
+        <div class="w-full h-1 bg-border-dark rounded-full"></div>
+        
+        <p class="text-xs text-text-secondary font-light leading-relaxed">
+          {p3Desc}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

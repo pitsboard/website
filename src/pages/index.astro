@@ -1,17 +1,65 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/lp/Hero.astro';
+import WhatsPitsBoard from '../components/lp/WhatsPitsBoard.astro';
+import TactileFeedback from '../components/lp/TactileFeedback.astro';
+import AppIntegrations from '../components/lp/AppIntegrations.astro';
+import HowPitsBoardWorks from '../components/lp/HowPitsBoardWorks.astro';
+import BasicHardware from '../components/lp/BasicHardware.astro';
+import CustomPlates from '../components/lp/CustomPlates.astro';
+import ForceTouch from '../components/lp/ForceTouch.astro';
+import Overlay from '../components/lp/Overlay.astro';
+import OverlayExamples from '../components/lp/OverlayExamples.astro';
+import ActionOverlay from '../components/lp/ActionOverlay.astro';
+import ActionOverlayExamples from '../components/lp/ActionOverlayExamples.astro';
+import Studio from '../components/lp/Studio.astro';
+import FutureVision from '../components/lp/FutureVision.astro';
+import AboutDevelopment from '../components/lp/AboutDevelopment.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout layoutType="lp">
+  <!-- 1. Hero Section -->
+  <Hero />
+
+  <!-- 2. What's PitsBoard -->
+  <WhatsPitsBoard />
+
+  <!-- 2.3. Tactile Feedback at Your Fingertips -->
+  <TactileFeedback />
+
+  <!-- 3. How PitsBoard Works (Includes System Architecture / SYSTEM) -->
+  <HowPitsBoardWorks />
+
+  <!-- 3.5. App Integrations (3-Column Figma, Blender, OS Cards) -->
+  <AppIntegrations />
+
+  <!-- 4. Physical Experience: Basic Hardware -->
+  <BasicHardware />
+
+  <!-- 5. Physical Experience: Custom Plates -->
+  <CustomPlates />
+
+  <!-- 6. Physical Experience: Force Touch & Haptic Feedback -->
+  <ForceTouch />
+
+  <!-- 7. Software Experience: Overlay UI -->
+  <Overlay />
+
+  <!-- 8. Software Experience: Application Integration & Examples (Includes What Can It Control) -->
+  <OverlayExamples />
+
+  <!-- 9. Software Experience: Action Overlay -->
+  <ActionOverlay />
+
+  <!-- 9.5. Software Experience: Action Overlay Examples -->
+  <ActionOverlayExamples />
+
+  <!-- 10. Customization: PitsBoard Studio -->
+  <Studio />
+
+  <!-- 10. Future Vision -->
+  <FutureVision />
+
+  <!-- 11. About Development -->
+  <AboutDevelopment />
+</Layout>

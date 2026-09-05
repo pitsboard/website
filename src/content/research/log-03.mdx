@@ -1,0 +1,287 @@
+---
+title: "The Interaction Should Survive the Hardware"
+publishDate: "2026-09-02"
+author: "PitsBoard"
+summary: "Why PitsBoard is being designed so that interactions, profiles, and higher-level behavior can survive changes in sensors, hardware, operating systems, and future devices."
+tags: ["PitsBoard", "Architecture", "Interaction", "Protocol"]
+---
+
+When I started building PitsBoard, the idea was relatively simple.
+
+I wanted to combine touch sensing and force sensing to create a different way of interacting with computers.
+
+To make that possible, I built hardware, wrote firmware, created a desktop application, and implemented different interaction methods.
+
+But as development continued, one question started to bother me:
+
+**Do the interactions I am creating only work with this specific hardware?**
+
+### Sensors will eventually change
+
+The current version of PitsBoard uses capacitive touch sensors and force sensors.
+
+But there is no reason to assume that these will remain the same forever.
+
+Thinner touch sensors may become available.
+
+More accurate force sensors may replace the current ones.
+
+A completely different sensing method may eventually be able to produce the same kind of physical input.
+
+If the software depends directly on the raw data from today's sensors, every hardware change could require the interaction layer above it to be rewritten as well.
+
+For example, if an Interaction directly depends on:
+
+- sensor-specific coordinate values
+- raw ADC force values
+- the data format of a particular MCU
+- states that exist only on one specific device
+
+then the hardware and software quickly become tightly coupled.
+
+With PitsBoard, I want to create a more stable boundary between the hardware and the Interaction layer.
+
+### Turning physical input into common Events
+
+The basic idea is simple:
+
+**Sensor → Event → Interaction → Action → Application**
+
+Here, an **Interaction** is the logic that turns physical input events — touching, pressing, moving, rotating — into a usable interaction model.
+
+For example:
+
+- selecting with a dial
+- moving something relatively
+- choosing from a radial menu
+- changing a continuous value
+
+The Event layer should represent something closer to **what physically happened**, rather than exposing the internal data format of the hardware.
+
+That could include information such as:
+
+- position
+- pressure
+- contact
+- press / release
+- relative movement
+- rotation
+- velocity
+
+Coordinates should not necessarily depend on the native resolution of a particular touch sensor.
+
+Where useful, they can instead be represented through normalized coordinates or physical dimensions.
+
+Force should also be treated as a calibrated value rather than as a raw number from one specific sensor.
+
+The goal is that when the sensor underneath changes, the Interaction above it can remain unchanged as much as possible.
+
+### The Interaction should not know the application either
+
+The same principle applies in the other direction.
+
+If an Interaction starts containing logic such as "do this in Photoshop" or "do this in this particular game," then the Interaction becomes tightly coupled to the application instead.
+
+A circular Interaction, for example, does not need to know anything about Photoshop brush size.
+
+It only needs to output an abstract result such as:
+
+- the value changed
+- item number three was selected
+- relative movement occurred
+- a commit happened
+
+What that result actually controls belongs to another layer.
+
+It could later be mapped to:
+
+- a keyboard shortcut
+- mouse input
+- an application command
+- an internal page change
+- an API call
+
+The relationship I want to preserve is something like this:
+
+**The Device does not know the Application.**
+
+**The Interaction does not know the Device.**
+
+**The Command does not know the Sensor.**
+
+The more these boundaries can be maintained, the easier it becomes to replace one part of the system without rebuilding everything above or below it.
+
+### Context should be treated as a separate flow
+
+In real applications, input alone is not enough.
+
+We also need to know things such as:
+
+- which application is currently active
+- which window has focus
+- which tool is selected
+- which mode the application is in
+
+This kind of information is what I think of as **Context**.
+
+But Context is highly dependent on the operating system and the application.
+
+macOS and Windows expose state in different ways.
+
+Application-specific information may require a plugin, accessibility API, scripting interface, or dedicated integration.
+
+Because of that, I think it makes more sense to treat Context as a separate flow from physical input:
+
+**Context → Resolver → Profile / Interaction**
+
+The goal is not to eliminate OS-specific behavior.
+
+That would be unrealistic.
+
+The goal is to prevent those dependencies from leaking upward into every Interaction.
+
+### We do not need to predict every future sensor
+
+It is impossible to define every possible form of physical input today.
+
+IMUs.
+
+Gesture sensing.
+
+Eye tracking.
+
+Spatial position.
+
+Distance sensors.
+
+Entirely new sensing technologies may become common in the future.
+
+Because of that, I do not think the right approach is to define one enormous fixed standard from the beginning.
+
+A structure closer to:
+
+**Small Core + Extensions + Capabilities**
+
+may be more practical.
+
+Keep the basic Event model small.
+
+Add new kinds of input through Extensions.
+
+Let each Device declare which Capabilities it supports.
+
+An Interaction might then say:
+
+**Requires: position + pressure**
+
+rather than:
+
+**Requires: this exact PitsBoard hardware revision**
+
+If two completely different devices provide the same required Capabilities, there is at least the possibility that the same Interaction could run on both.
+
+The internal hardware can be different.
+
+The physical form can be different.
+
+The sensing technology can be different.
+
+What matters is whether the necessary capabilities are available.
+
+### The hardware should be replaceable
+
+The current PitsBoard is a physical interface built around interchangeable plates, capacitive touch, and force sensing.
+
+But I do not assume that this will always be the best possible form.
+
+In the future, interfaces that can electronically change their shape or visual appearance may become practical.
+
+New sensors may reproduce today's interactions in completely different ways.
+
+That is fine.
+
+The hardware itself should be allowed to change.
+
+What matters is that the Interactions and Profiles people have created on top of it do not disappear at the same time.
+
+**The hardware should be replaceable. The interaction should survive.**
+
+This is becoming one of the more important design principles behind PitsBoard.
+
+### The location of computation does not need to be fixed either
+
+In the current implementation of PitsBoard, a Runtime on the PC processes much of the input.
+
+That means there are currently dependencies on the operating system and local machine environment.
+
+But in the longer term, I do not think the system needs to permanently define where every computation takes place.
+
+The device does not need to contain all of the interaction logic itself.
+
+It can focus on sensing and lightweight communication.
+
+Processing beyond that could happen on:
+
+- the local PC
+- another edge device
+- a dedicated local service
+- potentially even cloud infrastructure in some future use cases
+
+The important part is that moving computation to a different place should not require rebuilding the physical interface itself.
+
+A useful way to think about the device side is:
+
+**Sense → Normalize → Send**
+
+Keeping the device relatively simple is not only about performance.
+
+It can also help preserve long-term compatibility.
+
+### Standardization is not the goal
+
+I am not trying to create a new global standard with PitsBoard.
+
+The goal is much more practical.
+
+I do not want a Physical Interface or Interaction created by a user to become trapped inside one sensor, one device revision, or one generation of hardware.
+
+To reduce that risk, I want to separate:
+
+- Device
+- Event
+- Interaction
+- Context
+- Action
+- Command
+
+as much as reasonably possible.
+
+If PitsBoard hardware changes in the future, the things built on top of it should have a chance to survive.
+
+And if the same architecture eventually proves useful for another physical interface, I see no reason to prevent that.
+
+Many parts of this are still experimental.
+
+How should coordinates be represented?
+
+How much should Capabilities be standardized?
+
+How much Context should the system attempt to expose?
+
+Where should the boundary between Interaction and Action actually sit?
+
+These questions will need to be answered through implementation, not only through diagrams.
+
+But one thing has become increasingly clear to me:
+
+PitsBoard may not be only a project about building one piece of hardware.
+
+It may also be an experiment in creating a long-lived layer for physical interaction between hardware and software.
+
+A layer where the sensors can change.
+
+The device can change.
+
+The computer can change.
+
+But the Interaction has a chance to remain.

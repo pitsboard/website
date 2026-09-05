@@ -1,0 +1,73 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag,
+  title,
+  subtitle,
+  desc1,
+  desc2,
+  spec1Label,
+  spec1Desc,
+  spec2Label,
+  spec2Desc,
+  spec3Label,
+  spec3Desc
+} = lpContent.studio;
+---
+
+<section id="pitsboard-studio" class="py-24 px-6 lg:px-16 border-b border-border-color bg-bg-dark/10">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    
+    <!-- Left Side: Explanation Text -->
+    <div class="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-6">
+      <div class="space-y-2">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {tag}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {title}
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-text-secondary font-light leading-relaxed max-w-2xl">
+        <p class="m-0 text-[15px]">
+          {subtitle}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc1}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc2}
+        </p>
+      </div>
+
+      <div class="border-t border-border-color/60 pt-4 space-y-2">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-text-muted font-mono">{spec1Label}</span>
+          <span class="text-white font-medium">{spec1Desc}</span>
+        </div>
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-text-muted font-mono">{spec2Label}</span>
+          <span class="text-white font-medium">{spec2Desc}</span>
+        </div>
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-text-muted font-mono">{spec3Label}</span>
+          <span class="text-white font-medium">{spec3Desc}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Studio Screenshot Placeholder -->
+    <div class="col-span-1 lg:col-span-7 flex justify-center">
+      <ImagePlaceholder
+        aspectRatio="aspect-[16/10]"
+        label="PITSBOARD STUDIO SCREENSHOT"
+        desc="Browser-based node graph editor screenshot."
+        className="w-full max-w-[580px]"
+      />
+    </div>
+
+  </div>
+</section>

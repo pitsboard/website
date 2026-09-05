@@ -1,0 +1,446 @@
+---
+// HardwareGrid.astro
+---
+
+<div class="hardware-grid-container">
+  <div class="header-bar">
+    <span class="tag">DEVICE SCHEMATIC</span>
+    <span class="model">PITSBOARD MODEL-0 // CONFIG: MODULAR_12</span>
+  </div>
+
+  <div class="grid-display">
+    <!-- Isometric/2D Schematic View -->
+    <div class="schematic-board">
+      <div class="grid-bg"></div>
+      
+      <!-- Module 1: Rotary Dials -->
+      <div class="hw-module dial-module" data-module="01" data-name="Rotary Encoder Array" data-spec="4x Anodized Knobs | Continuous Optical | 0x2A">
+        <span class="module-id">M.01</span>
+        <div class="physical-elements">
+          <div class="mini-knob"></div>
+          <div class="mini-knob"></div>
+          <div class="mini-knob"></div>
+          <div class="mini-knob"></div>
+        </div>
+        <span class="module-label">ROTARY-4</span>
+      </div>
+
+      <!-- Module 2: Key Matrix -->
+      <div class="hw-module key-module active" data-module="02" data-name="Cherry MX Tactile Grid" data-spec="16x Hot-swap Matrix | PBT Keycaps | 0x12">
+        <span class="module-id">M.02</span>
+        <div class="physical-elements key-grid">
+          {Array.from({ length: 16 }).map((_, i) => (
+            <div class="mini-key"></div>
+          ))}
+        </div>
+        <span class="module-label">MX-16 MATRIX</span>
+      </div>
+
+      <!-- Module 3: Slider / Fader -->
+      <div class="hw-module fader-module" data-module="03" data-name="Motorized Linear Fader" data-spec="100mm Studio Grade | Servo Driven | 0x4B">
+        <span class="module-id">M.03</span>
+        <div class="physical-elements slider-track">
+          <div class="slider-handle"></div>
+        </div>
+        <span class="module-label">FADER-100</span>
+      </div>
+
+      <!-- Module 4: OLED Widget -->
+      <div class="hw-module screen-module" data-module="04" data-name="OLED Debug Matrix" data-spec="128x64 Amber Display | SPI protocol | 0x3C">
+        <span class="module-id">M.04</span>
+        <div class="physical-elements screen-face">
+          <div class="screen-glow"></div>
+          <div class="dot-matrix-text">SYS_OK</div>
+        </div>
+        <span class="module-label">MONITOR-64</span>
+      </div>
+    </div>
+
+    <!-- Active Details Sidebar inside the grid -->
+    <div class="module-inspector">
+      <div class="inspector-box" id="hw-inspector">
+        <div class="inspector-header">
+          <span class="lbl">MODULE SPECS</span>
+          <span class="indicator-led pulsing"></span>
+        </div>
+        <h3 class="inspector-title" id="insp-title">Tactile Grid Matrix</h3>
+        <p class="inspector-desc" id="insp-desc">Hover over any hardware module slot on the left layout board to inspect internal schematics and laboratory specifications.</p>
+        
+        <div class="spec-table">
+          <div class="spec-row">
+            <span class="sk">MODULE ID</span>
+            <span class="sv" id="insp-id">M.02</span>
+          </div>
+          <div class="spec-row">
+            <span class="sk">HARDWARE ADDR</span>
+            <span class="sv" id="insp-addr">0x12</span>
+          </div>
+          <div class="spec-row">
+            <span class="sk">DESCRIPTION</span>
+            <span class="sv" id="insp-details">16x Hot-swap Matrix | PBT Keycaps</span>
+          </div>
+        </div>
+
+        <div class="overlay-graphic">
+          <div class="circuit-line"></div>
+          <div class="circuit-line delay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-note">
+    <span>DIMENSIONS: 280mm x 140mm x 22mm</span>
+    <span>POWER: USB-C BUS POWERED (5V, 500mA)</span>
+  </div>
+</div>
+
+<style>
+  .hardware-grid-container {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--accent-red);
+    letter-spacing: 0.15em;
+    font-weight: 600;
+  }
+
+  .model {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .grid-display {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .grid-display {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Schematic Layout Board */
+  .schematic-board {
+    position: relative;
+    border: 1px solid var(--border-color);
+    background-color: #121215;
+    aspect-ratio: 2 / 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: 
+      linear-gradient(var(--border-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+
+  /* Modular hardware card elements */
+  .hw-module {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    position: relative;
+    padding: 1rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hw-module:hover, .hw-module.active {
+    border-color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .hw-module.active {
+    box-shadow: 0 0 0 1.5px var(--text-primary);
+  }
+
+  .module-id {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--text-muted);
+  }
+
+  .module-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
+  .physical-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    width: 100%;
+  }
+
+  /* Dial elements styling */
+  .mini-knob {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #242428;
+    border: 1.5px solid #3C3C44;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
+  }
+
+  /* Keymatrix grid styling */
+  .key-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .mini-key {
+    width: 10px;
+    height: 10px;
+    background-color: #1A1A1E;
+    border: 1px solid #333;
+    border-radius: 1px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  }
+
+  /* Slider track styling */
+  .slider-track {
+    width: 80%;
+    height: 3px;
+    background-color: #222;
+    position: relative;
+    border-radius: 1px;
+  }
+
+  .slider-handle {
+    width: 6px;
+    height: 14px;
+    background-color: var(--text-primary);
+    border: 1px solid #555;
+    position: absolute;
+    left: 40%;
+    top: calc(50% - 7px);
+    border-radius: 1px;
+  }
+
+  /* OLED widget screen styling */
+  .screen-face {
+    width: 80%;
+    height: 70%;
+    background-color: #1a1a1a;
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .screen-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 94, 0, 0.05); /* Orange backlight */
+    pointer-events: none;
+  }
+
+  .dot-matrix-text {
+    font-family: var(--font-mono);
+    color: #FF5E00; /* Teenage orange screen text */
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    animation: flicker 4s infinite;
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.9; }
+    49% { opacity: 0.9; }
+    50% { opacity: 0.75; }
+    55% { opacity: 0.9; }
+    100% { opacity: 0.9; }
+  }
+
+  /* Module Inspector styling (Teenage Engineering lab vibe) */
+  .module-inspector {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    padding: 1.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .inspector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dotted var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .lbl {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .indicator-led {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+  }
+
+  .indicator-led.pulsing {
+    animation: flash 1s infinite alternate;
+  }
+
+  @keyframes flash {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; box-shadow: 0 0 4px var(--accent-red); }
+  }
+
+  .inspector-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .inspector-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .spec-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    border-top: 1px dotted var(--border-color);
+    padding-top: 0.8rem;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sk {
+    color: var(--text-muted);
+  }
+
+  .sv {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* Futuristic tech background wires in Inspector */
+  .overlay-graphic {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0.06;
+    pointer-events: none;
+    background-image: radial-gradient(circle, var(--text-primary) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+  }
+
+  .footer-note {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.8rem;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+  }
+</style>
+
+<script>
+  // Client-side hover inspection script
+  const modules = document.querySelectorAll('.hw-module');
+  const inspTitle = document.getElementById('insp-title');
+  const inspDesc = document.getElementById('insp-desc');
+  const inspId = document.getElementById('insp-id');
+  const inspAddr = document.getElementById('insp-addr');
+  const inspDetails = document.getElementById('insp-details');
+
+  modules.forEach(m => {
+    m.addEventListener('mouseenter', () => {
+      // Clear active on others
+      modules.forEach(mod => mod.classList.remove('active'));
+      m.classList.add('active');
+
+      const name = m.getAttribute('data-name') || '';
+      const spec = m.getAttribute('data-spec') || '';
+      const modId = m.getAttribute('data-module') || '';
+      
+      const specs = spec.split('|').map(s => s.trim());
+      const details = specs[0] + ' (' + specs[1] + ')';
+      const addr = specs[2] || '0x00';
+
+      if (inspTitle) inspTitle.textContent = name;
+      if (inspId) inspId.textContent = 'M.' + modId;
+      if (inspAddr) inspAddr.textContent = addr;
+      if (inspDetails) inspDetails.textContent = details;
+      if (inspDesc) {
+        if (modId === '01') {
+          inspDesc.textContent = "A high-precision quad optical encoder bank. Designed for fine-grained MIDI, OSC, and HID sweep parameter control. Smooth drag friction.";
+        } else if (modId === '02') {
+          inspDesc.textContent = "An ultra-responsive 4x4 matrix of Cherry MX switches. Support hot-swap dynamic layout re-mapping with custom firmware layers.";
+        } else if (modId === '03') {
+          inspDesc.textContent = "Linear optical linear fader. Perfect for high-fidelity master control or sound modulation. Physical metal carriage block.";
+        } else if (modId === '04') {
+          inspDesc.textContent = "Sleek low-power graphic display screen showing current layer states, live key mappings, active USB profiles, or debug notifications.";
+        }
+      }
+    });
+  });
+</script>

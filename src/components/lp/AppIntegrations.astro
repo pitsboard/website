@@ -1,0 +1,51 @@
+---
+import lpContent from '../../data/lp-content.json';
+
+const { tag, title, subtitle, cases } = lpContent.useCases;
+---
+
+<section id="app-integrations" class="pb-24 pt-12 px-6 lg:px-16 border-b border-border-color bg-bg-dark/20">
+  <div class="max-w-7xl w-full mx-auto space-y-12">
+    
+    <!-- Title Section -->
+    <div class="space-y-4 max-w-3xl">
+      <span class="font-mono text-[9px] text-accent-orange font-bold uppercase tracking-wider block">
+        {tag.replace(/^\d+\s*\/\/\s*/, '')}
+      </span>
+      <h4 class="text-xl font-bold text-white uppercase font-header m-0">
+        {title}
+      </h4>
+      <p class="text-sm text-text-secondary leading-relaxed font-light">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- 6-Column App Integrations Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      {cases.map((item: any) => (
+        <div class="border border-border-color bg-bg-card/20 rounded-md p-6 space-y-4 hover:border-accent-orange/20 transition-colors flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <span class="w-8 h-8 rounded flex items-center justify-center text-xs font-mono font-bold" style={`background-color: ${item.color}1a; color: ${item.color};`}>
+                  {item.icon}
+                </span>
+                <h4 class="text-xs font-bold text-white tracking-wider uppercase m-0">{item.title}</h4>
+              </div>
+            </div>
+            <ul class="space-y-2 text-xs text-text-secondary font-light list-none p-0 m-0">
+              {item.items.map((listItem: string) => (
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full mr-2" style={`background-color: ${item.color};`}></span>
+                  {listItem}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0E0E10;
+  --color-bg-sidebar: #131316;
+  --color-bg-card: #16161A;
+  --color-bg-dark: #000000;
+  
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #8E8E93;
+  --color-text-muted: #55555A;
+  --color-text-inverse: #0E0E10;
+  
+  --color-accent-red: #FF3B30;
+  --color-accent-orange: #FF5E00;
+  --color-border-color: #222226;
+  --color-border-dark: #2A2A30;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-header: 'Outfit', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+:root {
+  --bg-primary: #0E0E10;
+  --bg-sidebar: #131316;
+  --bg-card: #16161A;
+  --bg-dark: #000000;
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --text-muted: #55555A;
+  --text-inverse: #0E0E10;
+  
+  --accent-red: #FF3B30;
+  --accent-orange: #FF5E00;
+  --border-color: #222226;
+  --border-dark: #2A2A30;
+  
+  --sidebar-width: 280px;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-header: 'Outfit', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  
+  --grid-size: 24px;
+}
+
+/* Global Reset overrides for standard elements */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  /* Stark dark grid background */
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+/* Typography styling (Western stark minimal) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Monospace Tech Tags (Teenage Engineering Vibe) */
+.lab-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-red);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: normal;
+}
+
+.lab-tag::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+}
+
+/* Minimalist Dark Panel */
+.panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Technical dividers */
+hr.lab-divider {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 3rem 0;
+  position: relative;
+}
+
+hr.lab-divider::after {
+  content: "REF-SYS-GRID.PTB";
+  position: absolute;
+  right: 0;
+  top: -8px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  background-color: var(--bg-primary);
+  padding-left: 0.5rem;
+}
+
+/* Minimal Western-style Tech Buttons */
+.btn-lab {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--text-primary);
+  background-color: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.btn-lab:hover {
+  opacity: 0.8;
+}
+
+.btn-lab.primary {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* --- Responsive Scroll Snap LP Layout --- */
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem clamp(1.5rem, 8vw, 8rem);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Two-Column Layout (Used in Blog/Research Section) --- */
+.blog-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.blog-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  padding: 2.5rem 1.5rem;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.blog-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 5rem clamp(1.5rem, 6vw, 6rem);
+  max-width: 900px;
+  position: relative;
+}
+
+/* --- Media embeds inside Markdown (YouTube & Images) --- */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 1.8rem 0;
+  border: 1px solid var(--border-color);
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin: 2rem 0 0.5rem 0;
+  display: block;
+}
+
+.img-caption {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-align: left;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Responsive adjustments (Stark and clean unified codebase) */
+@media (max-width: 992px) {
+  .blog-container {
+    flex-direction: column;
+  }
+  
+  .blog-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+  }
+  
+  .blog-content {
+    margin-left: 0;
+    padding: 3rem 1.5rem;
+  }
+  
+  .snap-section {
+    height: auto;
+    min-height: 100vh;
+    scroll-snap-align: none;
+    padding: 6rem 1.5rem 4rem 1.5rem;
+  }
+  
+  .scroll-container {
+    height: auto;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+}

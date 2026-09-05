@@ -1,0 +1,138 @@
+---
+interface Props {
+  width?: string;
+  height?: string;
+  aspectRatio?: string; // e.g. "aspect-video", "aspect-[4/3]", etc.
+  label?: string;
+  desc?: string;
+  className?: string;
+}
+
+const { 
+  width = "w-full", 
+  height = "h-auto", 
+  aspectRatio = "aspect-video", 
+  label = "IMAGE PLACEHOLDER", 
+  desc = "PitsBoard Product Render Asset",
+  className = ""
+} = Astro.props;
+
+// Dynamically resolve the matching generated placeholder image
+let resolvedImgSrc = "";
+const labelNorm = label.toUpperCase().trim();
+const descNorm = desc.toLowerCase().trim();
+
+if (labelNorm === "PITSBOARD CHASSIS") {
+  resolvedImgSrc = "/images/placeholders/whats-pitsboard-chassis_800x800_1-1.png";
+} else if (labelNorm === "HARDWARE EXPLODED VIEW") {
+  resolvedImgSrc = "/images/placeholders/basic-hardware-exploded_800x1000_4-5.png";
+} else if (labelNorm === "CUSTOM PLATES VISUAL" || labelNorm === "CUSTOM PLATES HERO") {
+  resolvedImgSrc = "/images/placeholders/custom-plates-hero_800x450_16-9.png";
+} else if (labelNorm === "ALUMINUM PLATE") {
+  resolvedImgSrc = "/images/placeholders/custom-plates-01_800x450_16-9.png";
+} else if (labelNorm === "BRASS PLATE") {
+  resolvedImgSrc = "/images/placeholders/custom-plates-02_800x450_16-9.png";
+} else if (labelNorm === "WALNUT PLATE") {
+  resolvedImgSrc = "/images/placeholders/custom-plates-03_800x450_16-9.png";
+} else if (labelNorm === "ACRYLIC PLATE") {
+  resolvedImgSrc = "/images/placeholders/custom-plates-04_800x450_16-9.png";
+} else if (labelNorm === "STEP 01" || labelNorm === "STEP 01 // FIND") {
+  if (descNorm.includes("feel step")) {
+    resolvedImgSrc = "/images/placeholders/how-it-feels-step-01_800x450_16-9.png";
+  } else {
+    resolvedImgSrc = "/images/placeholders/force-input-step-01_800x450_16-9.png";
+  }
+} else if (labelNorm === "STEP 02" || labelNorm === "STEP 02 // TOUCH") {
+  if (descNorm.includes("feel step")) {
+    resolvedImgSrc = "/images/placeholders/how-it-feels-step-02_800x450_16-9.png";
+  } else {
+    resolvedImgSrc = "/images/placeholders/force-input-step-02_800x450_16-9.png";
+  }
+} else if (labelNorm === "STEP 03" || labelNorm === "STEP 03 // PRESS") {
+  if (descNorm.includes("feel step")) {
+    resolvedImgSrc = "/images/placeholders/how-it-feels-step-03_800x450_16-9.png";
+  } else {
+    resolvedImgSrc = "/images/placeholders/force-input-step-03_800x450_16-9.png";
+  }
+} else if (labelNorm === "STEP 04" || labelNorm === "STEP 04 // FEEL") {
+  if (descNorm.includes("feel step")) {
+    resolvedImgSrc = "/images/placeholders/how-it-feels-step-04_800x450_16-9.png";
+  } else {
+    resolvedImgSrc = "/images/placeholders/force-input-step-04_800x450_16-9.png";
+  }
+} else if (labelNorm === "STEP 05" || labelNorm === "STEP 05 // ACTION") {
+  resolvedImgSrc = "/images/placeholders/force-input-step-05_800x450_16-9.png";
+} else if (labelNorm === "OVERLAY UI SCREENSHOT") {
+  resolvedImgSrc = "/images/placeholders/overlay-ui-screenshot_800x500_16-10.png";
+} else if (labelNorm === "TACTILE VIDEO DEMO") {
+  resolvedImgSrc = "/images/placeholders/overlay-examples-tactile-demo_800x450_16-9.png";
+} else if (labelNorm === "KNOB PUSH VIDEO") {
+  resolvedImgSrc = "/images/placeholders/overlay-examples-knob-push_800x450_16-9.png";
+} else if (labelNorm === "KNOB ROTATE VIDEO") {
+  resolvedImgSrc = "/images/placeholders/overlay-examples-knob-rotate_800x450_16-9.png";
+} else if (labelNorm === "SLIDER DRAG VIDEO") {
+  resolvedImgSrc = "/images/placeholders/overlay-examples-slider-drag_800x450_16-9.png";
+} else if (labelNorm === "KEY PRESS VIDEO") {
+  resolvedImgSrc = "/images/placeholders/overlay-examples-key-press_800x450_16-9.png";
+} else if (labelNorm === "FIGMA PROFILE UI") {
+  resolvedImgSrc = "/images/placeholders/overlay-profile-01_800x450_16-9.png";
+} else if (labelNorm === "BLENDER PROFILE UI") {
+  resolvedImgSrc = "/images/placeholders/overlay-profile-02_800x450_16-9.png";
+} else if (labelNorm === "VSCODE PROFILE UI") {
+  resolvedImgSrc = "/images/placeholders/overlay-profile-03_800x450_16-9.png";
+} else if (labelNorm === "SPOTIFY PROFILE UI") {
+  resolvedImgSrc = "/images/placeholders/overlay-profile-04_800x450_16-9.png";
+} else if (labelNorm === "ROADMAP PHASE 01") {
+  resolvedImgSrc = "/images/placeholders/future-vision-phase-01_800x450_16-9.png";
+} else if (labelNorm === "ROADMAP PHASE 02") {
+  resolvedImgSrc = "/images/placeholders/future-vision-phase-02_800x450_16-9.png";
+} else if (labelNorm === "ROADMAP PHASE 03") {
+  resolvedImgSrc = "/images/placeholders/future-vision-phase-03_800x450_16-9.png";
+} else if (labelNorm === "PITSBOARD STUDIO SCREENSHOT") {
+  resolvedImgSrc = "/images/placeholders/pitsboard-studio_800x500_16-10.png";
+} else if (labelNorm === "ACTION OVERLAY DEMO" || labelNorm === "ACTION OVERLAY SCREENSHOT") {
+  resolvedImgSrc = "/images/placeholders/action-overlay-demo_800x500_16-10.png";
+} else if (labelNorm === "CLAUDE ACTION UI" || labelNorm === "ACTION // CLAUDE") {
+  resolvedImgSrc = "/images/placeholders/action-profile-01_800x450_16-9.png";
+} else if (labelNorm === "GEMINI ACTION UI" || labelNorm === "ACTION // GEMINI") {
+  resolvedImgSrc = "/images/placeholders/action-profile-02_800x450_16-9.png";
+} else if (labelNorm === "SYSTEM ACTION UI" || labelNorm === "ACTION // SYSTEM") {
+  resolvedImgSrc = "/images/placeholders/action-profile-03_800x450_16-9.png";
+} else if (labelNorm === "TERMINAL ACTION UI" || labelNorm === "ACTION // TERMINAL") {
+  resolvedImgSrc = "/images/placeholders/action-profile-04_800x450_16-9.png";
+}
+---
+
+<div class={`relative flex flex-col items-center justify-center border border-border-color bg-bg-card/40 rounded-sm overflow-hidden group hover:border-accent-orange/40 transition-colors ${width} ${height} ${aspectRatio} ${className}`}>
+  {resolvedImgSrc ? (
+    <img 
+      src={resolvedImgSrc} 
+      alt={label} 
+      class="w-full h-full object-cover" 
+    />
+  ) : (
+    <>
+      <!-- Grid backdrop inside placeholder to feel tech/labs themed -->
+      <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none"></div>
+
+      <!-- Minimal Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-text-muted mb-2 group-hover:text-accent-orange/60 transition-colors">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.9 2.9m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+
+      <div class="relative z-10 p-6 text-center select-none">
+        <span class="font-mono text-[10px] tracking-wider text-accent-orange uppercase font-semibold block mb-0.5">
+          {label}
+        </span>
+        <span class="text-xs text-text-secondary block font-light max-w-[280px]">
+          {desc}
+        </span>
+      </div>
+
+      <!-- Corner details to make it look premium/CAD blueprint-like -->
+      <span class="absolute top-2 left-2 font-mono text-[8px] text-text-muted">PTB.IMG.SRC</span>
+      <span class="absolute bottom-2 right-2 font-mono text-[8px] text-text-muted">{aspectRatio.replace('aspect-', '').toUpperCase()}</span>
+    </>
+  )}
+</div>
+

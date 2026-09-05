@@ -1,0 +1,96 @@
+---
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag,
+  title,
+  subtitle,
+  desc1,
+  desc2
+} = lpContent.actionOverlay;
+---
+
+<section id="action-overlay" class="pt-24 pb-12 px-6 lg:px-16 bg-bg-dark/10 overflow-hidden">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    
+    <!-- Left Side: Explanation Text -->
+    <div class="col-span-1 lg:col-span-5 flex flex-col justify-center space-y-6">
+      <div class="space-y-2">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {tag}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {title}
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-text-secondary font-light leading-relaxed max-w-2xl">
+        <p class="m-0 text-[15px]">
+          {subtitle}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc1}
+        </p>
+        <p class="m-0 text-[15px]">
+          {desc2}
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Side: Action Overlay Demo / Interactive Video Player -->
+    <div class="col-span-1 lg:col-span-7 flex justify-center">
+      <div id="action-overlay-video-wrapper" class="relative flex flex-col items-center justify-center border border-border-color bg-bg-card/40 rounded-sm overflow-hidden group hover:border-accent-orange/40 transition-colors w-full max-w-[550px] aspect-[16/10] cursor-pointer">
+        <video
+          id="action-overlay-video"
+          src="/videos/action-overlay-demo.mp4"
+          poster="/images/placeholders/action-overlay-demo_800x500_16-10.png"
+          playsinline
+          preload="metadata"
+          class="w-full h-full object-cover"
+        >
+        </video>
+
+        <!-- Center Play Button Overlay (Matching attached screenshot mockup) -->
+        <button
+          id="action-overlay-play-btn"
+          type="button"
+          aria-label="Play video"
+          class="absolute z-20 w-14 h-14 rounded-full bg-black/60 border border-white/20 backdrop-blur-sm flex items-center justify-center text-accent-orange group-hover:scale-110 group-hover:border-accent-orange/60 group-hover:bg-black/80 transition-all duration-300 shadow-2xl"
+        >
+          <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+
+        <!-- Corner detail to match site style -->
+        <span class="absolute top-2 left-2 font-mono text-[8px] text-text-muted/80 bg-black/40 px-1 rounded pointer-events-none z-10">PTB.VIDEO.DEMO</span>
+        <span class="absolute bottom-2 right-2 font-mono text-[8px] text-text-muted/80 bg-black/40 px-1 rounded pointer-events-none z-10">16:10 / MP4</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const wrapper = document.getElementById('action-overlay-video-wrapper');
+  const video = document.getElementById('action-overlay-video') as HTMLVideoElement | null;
+  const playBtn = document.getElementById('action-overlay-play-btn');
+
+  if (wrapper && video && playBtn) {
+    const togglePlay = () => {
+      if (video.paused) {
+        video.play();
+        playBtn.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        video.pause();
+        playBtn.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    };
+
+    wrapper.addEventListener('click', togglePlay);
+
+    video.addEventListener('ended', () => {
+      playBtn.classList.remove('opacity-0', 'pointer-events-none');
+    });
+  }
+</script>

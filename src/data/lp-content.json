@@ -1,0 +1,415 @@
+{
+  "hero": {
+    "tag": "DEVELOPER PROGRAM",
+    "titleLine1": "",
+    "titleLine2": "PITS BOARD",
+    "subtitle": "Touch. Press. Feel. Take action.PitsBoard combines tactile controls, visual overlays, and application-specific profiles.A new way to interact with software.",
+    "ctaPrimary": "JOIN DISCORD",
+    "ctaSecondary": "Read Articles",
+    "hudLabel": "PitsBoard Overlay Concept",
+    "hudStatus": "CONNECTED // 1000Hz",
+    "hudDial1Id": "M.01",
+    "hudDial1Name": "Brush Size (Figma)",
+    "hudDial1Value": "64 px",
+    "hudDial2Id": "M.02",
+    "hudDial2Name": "Opacity",
+    "hudDial2Value": "85%",
+    "hudProfile": "Profile: Default_Figma",
+    "hudHint": "Hold [Shift+Space] to reveal"
+  },
+  "whatsPitsboard": {
+    "tag": "01 // CONCEPT",
+    "title": "Why PitsBoard",
+    "subtitle": "Most software is designed around keyboards, mice, and touchscreens.",
+    "desc1": "PitsBoard explores what happens when physical controls, adaptive interfaces, and application-specific workflows become part of the same system.",
+    "desc2": "An experimental platform for rethinking digital interaction.A physical layer for digital tools.",
+    "feature1Label": "Touch, Press, Rotate",
+    "feature1Val": "PHYSICAL CONTROL",
+    "feature2Label": "See What You Control",
+    "feature2Val": "SCREEN OVERLAY",
+    "feature3Label": "Tools Change by Context",
+    "feature3Val": "APP PROFILES"
+  },
+  "howPitsboardWorks": {
+    "tag": "02 // FLOW",
+    "title": "HOW IT WORKS",
+    "subtitle": "Hardware, Overlay, and Studio work together to create a seamless physical-digital workflow.",
+    "hwLabel": "1. HARDWARE",
+    "hwDesc": "Touch,press and swipe on the physical board.",
+    "hwFooter": "INPUT STAGE // WEB-HID SOURCE",
+    "overlayLabel": "2. OVERLAY",
+    "overlayDesc": "Visual contrals appear on screen where you are looking.",
+    "overlayFooter": "HUD STAGE // OS OVERLAY ENGINE",
+    "studioLabel": "3. STUDIO",
+    "studioDesc": "Create and customize your own interactions and layouts.",
+    "studioFooter": "CONFIG STAGE // BROWSER NODE GRAPH",
+    "dataFlowTitle": "DATA ROUTING SCHEMA",
+    "node1": "[ PitsBoard ]",
+    "node1Label": "WebHID API",
+    "node2": "[ OS Overlay Engine ]",
+    "node2Label": "HTTP / Local API",
+    "node3": "[ Studio / Desktop App ]"
+  },
+  "ecosystem": {
+    "tag": "03 // INTEGRATION",
+    "title": "HOW IT CONNECTS",
+    "subtitle": "Connect physical interactions to apps, tools, and AI.",
+    "block1Title": "01 PitsBoard",
+    "block1Desc": "Modular physical input platform capturing high-precision dial, fader, and mechanical key events.",
+    "block2Title": "02 Actions",
+    "block2Desc": "Intermediary translation layer transforming tactile physical triggers into actions.",
+    "block3Title": "03 Apps & AI",
+    "block3Desc": "End-point destinations executing automation, shortcuts, local system commands, or AI triggers.",
+    "action1": "Command Execution",
+    "action2": "API Integration",
+    "action3": "HID Control",
+    "action4": "Shortcut Automation"
+  },
+  "useCases": {
+    "tag": "USE CASES",
+    "title": "WORKFLOW EXAMPLES",
+    "subtitle": "Examples of how PitsBoard can adapt to different workflows.",
+    "cases": [
+      {
+        "id": "creative",
+        "title": "CREATIVE WORKFLOWS",
+        "icon": "Cr",
+        "color": "#F24E1E",
+        "items": [
+          "Brush size adjustment",
+          "Canvas navigation",
+          "Object alignment"
+        ]
+      },
+      {
+        "id": "ai",
+        "title": "AI ASSISTANCE",
+        "icon": "AI",
+        "color": "#EA7600",
+        "items": [
+          "Action suggestions",
+          "Command generation",
+          "Text suggestions"
+        ]
+      },
+      {
+        "id": "system",
+        "title": "SYSTEM CONTROL",
+        "icon": "Sy",
+        "color": "#007ACC",
+        "items": [
+          "Volume & brightness",
+          "Window switching",
+          "App launching"
+        ]
+      },
+      {
+        "id": "text",
+        "title": "TEXT & WRITING",
+        "icon": "Tx",
+        "color": "#1DB954",
+        "items": [
+          "Cursor navigation",
+          "Text selection",
+          "AI-assisted editing"
+        ]
+      },
+      {
+        "id": "development",
+        "title": "DEVELOPMENT",
+        "icon": "Dv",
+        "color": "#9C27B0",
+        "items": [
+          "Terminal commands",
+          "Git operations",
+          "Workspace switching"
+        ]
+      },
+      {
+        "id": "automation",
+        "title": "AUTOMATION",
+        "icon": "Au",
+        "color": "#E91E63",
+        "items": [
+          "Run scripts",
+          "Trigger shortcuts",
+          "Control connected services"
+        ]
+      }
+    ]
+  },
+  "whatCanItControl": {
+    "tactile": {
+      "tag": "INTERACTION, REIMAGINED",
+      "title": "PHYSICAL GESTURES, DIFFERENTLY MAPPED.",
+      "desc": "The same surface can behave in completely different ways — from precise cursor control and radial selection to shortcuts, sliders, and layered actions."
+    },
+    "demos": {
+      "m01Label": "Interaction 01",
+      "m01Title": "FREE MOVE",
+      "m01Desc": "Move the cursor freely, just like using a trackpad.",
+      "m01Footer": "Push Event",
+      "m02Label": "Interaction 02",
+      "m02Title": "PRESS COMMAND",
+      "m02Desc": "Execute assigned commands or switch interaction modes with a press.",
+      "m02Footer": "Rotary Event",
+      "m03Label": "Interaction 03",
+      "m03Title": "DIAL SELECT",
+      "m03Desc": "Use rotational gestures to select options, execute actions, or adjust values.",
+      "m03Footer": "Fader Event",
+      "m04Label": "Interaction 04",
+      "m04Title": "SHORTCUT SLIDE",
+      "m04Desc": "Run shortcuts directly and swipe to switch between pages of commands.",
+      "m04Footer": "Key Event"
+    },
+    "matrixLabel": "delete",
+    "matrixCount": "delete"
+  },
+  "forceTouch": {
+    "tag": "05 // FORCE TOUCH & HAPTIC FEEDBACK",
+    "title": "PRESSURE & HAPTIC FEEDBACK",
+    "subtitle": "Traditional interfaces separate input and feedback. PitsBoard combines them into a single interaction loop.Touch to explore. Press to commit. Feel the result instantly through haptic feedback.A more direct connection between your hands and software.",
+    "howForceInputWorksTitle": "Force Input",
+    "howItFeelsTitle": "HAPTIC FEEDBACK",
+    "placeholderText1": "Traditional touch interfaces are limited to position.Force sensing adds depth to interaction.The same surface can become a button, a slider, a modifier, or a precision control depending on how pressure is applied.",
+    "placeholderText2": "Visual interfaces rely on your eyes. Haptic feedback lets your hands understand what happened without looking away.Different actions, states, and confirmations can be communicated through touch, helping you stay focused on your work.",
+    "forceInputSteps": [
+      {
+        "num": "1",
+        "title": "Find",
+        "desc": "Your fingers land on the right place naturally."
+      },
+      {
+        "num": "2",
+        "title": "Touch",
+        "desc": "Light touch selects and highlights."
+      },
+      {
+        "num": "3",
+        "title": "Press (Force)",
+        "desc": "Press down to commit your choice."
+      },
+      {
+        "num": "4",
+        "title": "Feel",
+        "desc": "Haptic feedback confirms the action."
+      },
+      {
+        "num": "5",
+        "title": "Action",
+        "desc": "Command is executed. You stay in flow."
+      }
+    ],
+    "howItFeelsSteps": [
+      {
+        "num": "1",
+        "title": "Find",
+        "desc": "Contours guide your fingers to the right position."
+      },
+      {
+        "num": "2",
+        "title": "Press",
+        "desc": "Pressure-sensitive input detects your action."
+      },
+      {
+        "num": "3",
+        "title": "Feel",
+        "desc": "Haptic feedback confirms the input."
+      },
+      {
+        "num": "4",
+        "title": "Action",
+        "desc": "Command is executed. You stay in flow."
+      }
+    ]
+  },
+  "basicHardware": {
+    "tag": "04 // STRUCTURE",
+    "title": "HARDWARE",
+    "subtitle": "Designed around touch, pressure, and muscle memory.",
+    "desc1": "PitsBoard combines capacitive touch sensing,pressure detection, and customizable surface layoutsto create a more tactile way to interact with software.",
+    "desc2": "Swap plates.Change layouts.Adapt the surface to your workflow.",
+    "topCoverLabel": "TOP COVER",
+    "topCoverDesc": "Swappable faceplate layer",
+    "railLayerLabel": "RAIL LAYER",
+    "railLayerDesc": "Magnetic rails supporting hot-swap modules",
+    "mcuPcbLabel": "MCU PCB",
+    "mcuPcbDesc": "RP2040-based custom WebHID controller",
+    "baseChassisLabel": "BASE CHASSIS",
+    "baseChassisDesc": "Solid bottom plate with anti-slip rubber grips"
+  },
+  "customPlates": {
+    "tag": "05 // CUSTOMIZATION",
+    "title": "CUSTOM PLATES",
+    "subtitle": "A physical interface you can reshape.",
+    "desc1": "PitsBoard uses interchangeable plates to turn the same sensing surface into different tactile layouts.",
+    "desc2": "Plates can be 3D printed with conductive touch features, letting you modify existing layouts or create entirely new ones for your own workflow.",
+    "aluminumLabel": "ALUMINUM",
+    "aluminumTitle": "Standard",
+    "aluminumDesc": "Balanced layout for everyday workflows.",
+    "brassLabel": "SOLID BRASS",
+    "brassTitle": "Creative",
+    "brassDesc": "Flexible controls for design and creative tools.",
+    "walnutLabel": "WALNUT WOOD",
+    "walnutTitle": "3D Modering",
+    "walnutDesc": "Precision controls for navigation and modeling.",
+    "acrylicLabel": "FROSTED GLASS",
+    "acrylicTitle": "DAW",
+    "acrylicDesc": "Hands-on controls for mixing and music production.",
+    "blueprintTag": "CAD Blueprint Availability",
+    "blueprintDesc": "Precise CAD dimensional data (DXF / STEP) is available on GitHub. You can laser-cut acrylic or 3D-print your own custom plates.",
+    "blueprintCta": "GET CAD DATA"
+  },
+  "overlay": {
+    "tag": "06 // OVERLAY UI",
+    "title": "CONTEXTUAL OVERLAY",
+    "subtitle": "A contextual layer between your hands and software.",
+    "desc1": "PitsBoard surfaces relevant actions, suggestions,and controls exactly when you need them.",
+    "desc2": "Touch to reveal.Select to confirm.Then get out of the way.",
+    "list1": "Ultra-lightweight HUD inspired by Apple & Raycast",
+    "list2": "Toggle HUD visibility with [Shift + Caps] shortcut",
+    "list3": "Automatic profile switching based on the active application",
+    "placeholderLabel": "OVERLAY UI SCREENSHOT",
+    "placeholderDesc": "macOS native overlay HUD screenshot."
+  },
+  "overlayExamples": {
+    "tag": "07 // CONFIGURATION TEMPLATES",
+    "title": "OVERLAY EXAMPLES",
+    "subtitle": "Preset mappings for different applications. Profiles switch automatically based on the active window.",
+    "profiles": [
+      {
+        "id": "IMAGE EDITING",
+        "label": "PROFILE // IMAGE EDITING",
+        "status": "ACTIVE",
+        "color": "#F24E1E",
+        "mappings": [
+          { "input": "DIAL 1", "name": "Brush Size", "value": "64px" },
+          { "input": "DIAL 2", "name": "Zoom Level", "value": "340%" },
+          { "input": "SLIDER", "name": "Opacity", "value": "80%" },
+          { "input": "KEY 1",  "name": "Group Cmd", "value": "⌘G" }
+        ],
+        "file": "Layout File: default_figma.json"
+      },
+      {
+        "id": "blender",
+        "label": "PROFILE // 3D MODELING",
+        "status": "STANDBY",
+        "color": "#EA7600",
+        "mappings": [
+          { "input": "DIAL 1", "name": "Timeline Scrub", "value": "Fr 142" },
+          { "input": "DIAL 2", "name": "View Rotate", "value": "Y-Axis" },
+          { "input": "SLIDER", "name": "Brush Strength", "value": "0.45" },
+          { "input": "KEY 1",  "name": "Render Frame", "value": "F12" }
+        ],
+        "file": "Layout File: default_blender.json"
+      },
+      {
+        "id": "vscode",
+        "label": "PROFILE // MUSIC PRODUCTION",
+        "status": "STANDBY",
+        "color": "#007ACC",
+        "mappings": [
+          { "input": "DIAL 1", "name": "Scroll Line", "value": "±1 Line" },
+          { "input": "DIAL 2", "name": "Font Size", "value": "14pt" },
+          { "input": "SLIDER", "name": "Tab Select", "value": "Index 4" },
+          { "input": "KEY 1",  "name": "Format Code", "value": "⌥⇧F" }
+        ],
+        "file": "Layout File: default_vscode.json"
+      },
+      {
+        "id": "spotify",
+        "label": "PROFILE // VIDEO EDITING",
+        "status": "BACKGROUND",
+        "color": "#1DB954",
+        "mappings": [
+          { "input": "DIAL 1", "name": "Volume Adjust", "value": "34%" },
+          { "input": "DIAL 2", "name": "Seek Track", "value": "1:42 / 3:50" },
+          { "input": "SLIDER", "name": "EQ Balance", "value": "Center" },
+          { "input": "KEY 1",  "name": "Skip Song", "value": "▶▶|" }
+        ],
+        "file": "Layout File: default_spotify.json"
+      }
+    ]
+  },
+  "actionOverlay": {
+    "tag": "08 // overlay extension",
+    "title": "ACTION OVERLAY",
+    "subtitle": "A temporary workspace for contextual information and actions.",
+    "desc1": "Display dynamic content from AI, APIs, and custom actions alongside your workflow.",
+    "desc2": "Show prompts, responses, progress, confirmations, and task-specific information when needed."
+  },
+  "actionOverlayExamples": {
+    "tag": "ACTION TEMPLATES",
+    "title": "ACTION OVERLAY EXAMPLES",
+    "subtitle": "Different overlays for different tasks, triggered by context and actions.",
+    "profiles": [
+      {
+        "id": "gemini",
+        "label": "ACTION // AI TOOLS",
+        "desc": "AI assistant prompt and response action overlay.",
+        "placeholderLabel": "GEMINI ACTION UI"
+      },
+      {
+        "id": "claude",
+        "label": "ACTION // MEDIA PLAYER",
+        "desc": "Code generation and review action overlay.",
+        "placeholderLabel": "CLAUDE ACTION UI"
+      },
+      {
+        "id": "terminal",
+        "label": " ACTION // CLIPBOARD HISTORY",
+        "desc": "Command execution and script output overlay.",
+        "placeholderLabel": "TERMINAL ACTION UI"
+      },
+      {
+        "id": "system",
+        "label": " ACTION // COLOR PICKER",
+        "desc": "System status and process control overlay.",
+        "placeholderLabel": "SYSTEM ACTION UI"
+      }
+    ]
+  },
+  "studio": {
+    "tag": "09 // CUSTOMIZE",
+    "title": "PITSBOARD STUDIO",
+    "subtitle": "A browser-based platform for customizing and sharing PitsBoard profiles.Create your own shortcuts, layouts, and workflowswithout modifying the hardware.We're exploring a future where profiles can be shared,downloaded, and remixed by the community.",
+    "spec1Label": "SIMPLE CUSTOMIZATION",
+    "spec1Desc": "Create custom layouts and shortcuts.",
+    "spec2Label": "PROFILE SHARING",
+    "spec2Desc": "Download, share, and remix workflows.",
+    "spec3Label": "BROWSER BASED",
+    "spec3Desc": "No installation required.",
+    "placeholderLabel": "PITSBOARD STUDIO SCREENSHOT",
+    "placeholderDesc": "Browser-based node graph editor screenshot."
+  },
+  "futureVision": {
+    "tag": "10 // PLANS",
+    "title": "FROM KIT TO PLATFORM",
+    "subtitle": "A roadmap from open experimentation to a refined product ecosystem.",
+    "phase1Label": "PHASE 1 // NOW",
+    "phase1Date": "2026 Q2",
+    "phase1Title": "BUILDER KIT",
+    "p1Desc": "Build it your way. An open development kit for creating your own tactile interfaces — and exploring the ideas and interactions that will shape the future Pits Board product.",
+    "phase2Label": "PHASE 2",
+    "phase2Date": "2026 Q4",
+    "phase2Title": "STUDIO / COMMUNITY ",
+    "p2Desc": "Build it together. Share what you create, exchange ideas, and help shape what comes next. Feedback from early builders will directly inform Pits board Studio and the wider platform.",
+    "phase3Label": "PHASE 3",
+    "phase3Date": "2027",
+    "phase3Title": "PRODUCT",
+    "p3Desc": "efined for everyone. What we learn from the Builder Kit and community will shape a more polished product, backed by integrated hardware, scalable production, and dedicated support."
+  },
+  "aboutDevelopment": {
+    "tag": "11 // COMMUNTIY & DEV",
+    "title": "ABOUT DEVELOPMENT",
+    "subtitle": "PitsBoard is an independent hardware project developed in Japan.",
+    "desc1": "PitsBoard is not a closed consumer device.",
+    "desc2": "Rather than defining a finished product behind closed doors, we want to develop it in the open and shape it together with people around the world. \n\nWe plan to share hardware designs, firmware, software tools, and specifications for swappable plates as development progresses.Users will be able to create their own plates and profiles, experiment with new interactions, and share what they build with the community.　\n\nPitsBoard is still evolving. Feedback, experiments, and contributions from the community will help shape what it becomes.",
+    "ctaBoxTag": "Join the labs",
+    "ctaTitle": "Join the Community",
+    "ctaDesc": "Share feedback, swap modular hardware designs, and coordinate custom software mappings inside our Discord. Follow us on X for logs and developer updates.",
+    "discordLabel": "DISCORD COMMUNITY",
+    "twitterLabel": "FOLLOW ON X (TWITTER)",
+    "githubLabel": "GITHUB REPOSITORY"
+  }
+}

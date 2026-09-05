@@ -1,0 +1,48 @@
+---
+title: "メディア統合デモ: YouTube埋め込みとインタラクティブGIF検証"
+publishDate: "2026-05-29"
+author: "Dr. Kenji Sato"
+summary: "研究ログ内での動画（YouTube埋め込み）やGIFアニメーション等のメディア検証。レスポンシブ動作とタイポグラフィの美しさを検証します。"
+tags: ["Media", "Documentation", "HCI"]
+---
+
+PitsBoardの仕様解説や、実機の素早い操作（物理ダイヤルの高速回転など）を記録・共有するため、Markdown内に動画やGIFを美しく配置できる機構をテストしました。
+
+欧米の洗練されたインダストリアルデザインに倣い、無駄な装飾を削ぎ落としたスタイリッシュなレスポンシブメディア表示を実現しています。
+
+### 1. YouTube ビデオの埋め込み (16:9 レスポンシブ)
+
+研究メンバーへのデモ共有や機能デモのために、YouTubeのiframe埋め込みを使用します。レスポンシブに対応した `.video-wrapper` で囲むことで、スマートフォンの極小画面からウルトラワイドモニターまで自動的にアスペクト比を維持して表示されます。
+
+<div class="video-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+    title="PitsBoard Hardware Operation Demo" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen
+  ></iframe>
+</div>
+
+### 2. GIFアニメーション & テックキャプション
+
+デバイス単体の細かな動き（インジケーターの明滅やノブの回転）など、短い視覚情報にはGIFを使用します。画像の下部には、NothingやTeenage Engineering製品のラボノートで見られるようなミニマルなモノクロキャプション（等幅フォント仕様）を配置可能です。
+
+![PitsBoard physical rotating chassis](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80)
+<div class="img-caption">FIG.04 - MECHANICAL KNOB IN 45-DEGREE DYNAMIC OSCILLOSCOPE ROTATION BENCH</div>
+
+### 3. ソースコードとMarkdown構造の明快さ
+
+このドキュメントは完全に標準的なMarkdown記法で構成されているため、CMSなどの複雑な管理システムを必要とせず、Gitへのプッシュだけで1秒で追加・更新が可能です。
+
+```markdown
+<!-- コピペ用の記述テンプレート -->
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/[VIDEO_ID]"></iframe>
+</div>
+
+![代替テキスト](GIFまたは画像のパス)
+<div class="img-caption">画像の説明（等幅キャプションとして美しく配置されます）</div>
+```
+
+このメディア対応によって、直感的で生き生きとした技術ログをラフに追加できるようになりました。次のステップでは、WebHID APIを介した実際のブラウザ連携動作についてドキュメント化します。
+

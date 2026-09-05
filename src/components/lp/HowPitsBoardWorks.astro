@@ -1,0 +1,432 @@
+---
+import lpContent from '../../data/lp-content.json';
+
+const {
+  tag, title, subtitle,
+  hwLabel, hwDesc, hwFooter,
+  overlayLabel, overlayDesc, overlayFooter,
+  studioLabel, studioDesc, studioFooter,
+  dataFlowTitle, node1, node1Label, node2, node2Label, node3
+} = lpContent.howPitsboardWorks;
+
+const {
+  tag: ecoTag,
+  title: ecoTitle,
+  subtitle: ecoSubtitle,
+  block1Title,
+  block1Desc,
+  block2Title,
+  block2Desc,
+  block3Title,
+  block3Desc,
+  action1,
+  action2,
+  action3,
+  action4
+} = lpContent.ecosystem;
+---
+
+<section id="how-pitsboard-works" class="pt-24 pb-12 px-6 lg:px-16 bg-bg-dark/20">
+  <div class="max-w-7xl w-full mx-auto space-y-24">
+    
+    <!-- Part 1: How it Works (Core Concept) -->
+    <div class="space-y-16">
+      <!-- Title Section -->
+      <div class="space-y-4 max-w-3xl">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {tag}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {title}
+        </h2>
+        <p class="text-[15px] text-text-secondary font-light">
+          {subtitle}
+        </p>
+      </div>
+
+      <!-- 3-Column Cards Grid (Desktop 3, Tablet 2, Mobile 1) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Hardware -->
+        <div class="border border-border-color bg-bg-card/25 rounded-md overflow-hidden hover:border-accent-orange/20 transition-all flex flex-col">
+          <div class="aspect-video w-full bg-bg-dark/60 flex items-center justify-center border-b border-border-color relative">
+            <img src="/images/how-hardware.png" alt="PitsBoard Hardware" class="w-full h-full object-cover" onerror="this.style.display='none';this.nextElementSibling.style.removeProperty('display')" />
+            <div style="display:flex" class="absolute inset-0 flex-col items-center justify-center text-text-muted font-mono text-[10px] space-y-2">
+              <span class="text-3xl opacity-20">◻</span>
+              <span class="uppercase tracking-widest opacity-40">Hardware Image</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-3 flex flex-col flex-1 justify-between">
+            <div class="space-y-3">
+              <span class="font-mono text-[10px] text-accent-orange font-bold uppercase">{hwLabel}</span>
+              <p class="text-xs text-text-secondary font-light leading-relaxed">
+                {hwDesc}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Overlay -->
+        <div class="border border-border-color bg-bg-card/25 rounded-md overflow-hidden hover:border-accent-orange/20 transition-all flex flex-col">
+          <div class="aspect-video w-full bg-bg-dark/60 flex items-center justify-center border-b border-border-color relative">
+            <img src="/images/how-overlay.png" alt="PitsBoard Overlay" class="w-full h-full object-cover" onerror="this.style.display='none';this.nextElementSibling.style.removeProperty('display')" />
+            <div style="display:flex" class="absolute inset-0 flex-col items-center justify-center text-text-muted font-mono text-[10px] space-y-2">
+              <span class="text-3xl opacity-20">◻</span>
+              <span class="uppercase tracking-widest opacity-40">Overlay Image</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-3 flex flex-col flex-1 justify-between">
+            <div class="space-y-3">
+              <span class="font-mono text-[10px] text-accent-orange font-bold uppercase">{overlayLabel}</span>
+              <p class="text-xs text-text-secondary font-light leading-relaxed">
+                {overlayDesc}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Studio -->
+        <div class="border border-border-color bg-bg-card/25 rounded-md overflow-hidden hover:border-accent-orange/20 transition-all flex flex-col sm:col-span-2 lg:col-span-1">
+          <div class="aspect-video w-full bg-bg-dark/60 flex items-center justify-center border-b border-border-color relative">
+            <img src="/images/how-studio.png" alt="PitsBoard Studio" class="w-full h-full object-cover" onerror="this.style.display='none';this.nextElementSibling.style.removeProperty('display')" />
+            <div style="display:flex" class="absolute inset-0 flex-col items-center justify-center text-text-muted font-mono text-[10px] space-y-2">
+              <span class="text-3xl opacity-20">◻</span>
+              <span class="uppercase tracking-widest opacity-40">Studio Image</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-3 flex flex-col flex-1 justify-between">
+            <div class="space-y-3">
+              <span class="font-mono text-[10px] text-accent-orange font-bold uppercase">{studioLabel}</span>
+              <p class="text-xs text-text-secondary font-light leading-relaxed">
+                {studioDesc}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Part 2: Data Flow UI Diagram (Responsive Schema) -->
+    <div class="border border-border-color bg-bg-card/10 rounded-sm p-6 space-y-6">
+      
+      <!-- Flex schema: Desktop horizontal row, Mobile vertical stack -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-3">
+        
+        <!-- Step 1: Physical Input -->
+        <div class="flex items-center space-x-4 flex-1 w-full">
+          <!-- Device Icon -->
+          <svg class="w-14 h-11 text-text-muted flex-shrink-0" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="62" height="46" rx="8" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="15" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="29" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="37" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="45" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="53" cy="20" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="31" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="29" y="27" width="24" height="8" rx="4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <h4 class="text-sm font-bold text-white leading-tight">Physical Input</h4>
+            <p class="text-[11px] text-text-secondary font-light mt-1 leading-normal">
+              You interact with the board.
+            </p>
+          </div>
+        </div>
+
+        <!-- Connection 1 -->
+        <div class="text-text-muted flex items-center justify-center rotate-90 md:rotate-0 flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Step 2: Visual Feedback -->
+        <div class="flex items-center space-x-4 flex-1 w-full">
+          <!-- Monitor Icon -->
+          <svg class="w-14 h-11 text-text-muted flex-shrink-0" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="2" width="56" height="38" rx="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M32 40v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M22 45h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="44" cy="21" r="8" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <h4 class="text-sm font-bold text-white leading-tight">Visual Feedback</h4>
+            <p class="text-[11px] text-text-secondary font-light mt-1 leading-normal">
+              Overlay appears and shows available actions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Connection 2 -->
+        <div class="text-text-muted flex items-center justify-center rotate-90 md:rotate-0 flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Step 3: Action Executed -->
+        <div class="flex items-center space-x-4 flex-1 w-full">
+          <!-- Play Icon -->
+          <svg class="w-11 h-11 text-text-muted flex-shrink-0 mx-1.5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 16l11 8-11 8V16z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h4 class="text-sm font-bold text-white leading-tight">Action Executed</h4>
+            <p class="text-[11px] text-text-secondary font-light mt-1 leading-normal">
+              The action is sent to your apps and system.
+            </p>
+          </div>
+        </div>
+
+        <!-- Connection 3 -->
+        <div class="text-text-muted flex items-center justify-center rotate-90 md:rotate-0 flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Step 4: Fully Customizable -->
+        <div class="flex items-center space-x-4 flex-1 w-full">
+          <!-- Grid Icon -->
+          <svg class="w-11 h-11 text-text-muted flex-shrink-0 mx-1.5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="28" y="2" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="2" y="28" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="28" y="28" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <h4 class="text-sm font-bold text-white leading-tight">Fully Customizable</h4>
+            <p class="text-[11px] text-text-secondary font-light mt-1 leading-normal">
+              Design with Studio. Use and share.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Part 3: Ecosystem Pipeline (System Structure) -->
+    <div class="space-y-16 pt-12 border-t border-border-color/30">
+      <!-- Title Section -->
+      <div class="space-y-4 max-w-3xl">
+        <span class="font-mono text-[10px] tracking-wider text-accent-red uppercase font-semibold block">
+          {ecoTag}
+        </span>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight font-header border-none pb-0 mt-0 mb-0">
+          {ecoTitle}
+        </h3>
+        <p class="text-[15px] text-text-secondary font-light">
+          {ecoSubtitle}
+        </p>
+      </div>
+
+      <!-- 3-Block Columns Flow Layout (Desktop horizontal flow, Tablet/Mobile vertical stack) -->
+      <div class="flex flex-col lg:flex-row items-stretch justify-between gap-6 lg:gap-4">
+        
+        <!-- Block 1: PitsBoard (Hardware & UI) -->
+        <div class="flex-1 border border-blue-500/30 bg-bg-card/10 rounded-2xl p-6 flex flex-col justify-start hover:border-blue-500/50 transition-all">
+          <div class="space-y-6">
+            <!-- Header with PitsBoard Logo -->
+            <div class="flex items-center space-x-4 pb-4 border-b border-border-color/30">
+              <!-- Logo Concept (Blue circle with white p-logo) -->
+              <svg class="w-10 h-10 select-none flex-shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" fill="#1E88E5" />
+                <path d="M14 10v20M14 18c3-3.5 10-3.5 10 2s-7 5.5-10 2" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <h4 class="text-xl font-bold text-blue-500 font-sans tracking-wide m-0 leading-none">PitsBoard</h4>
+              </div>
+            </div>
+
+            <!-- Features List -->
+            <div class="space-y-5 pt-2">
+              
+              <!-- feature 1 -->
+              <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-lg border border-blue-500/40 flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-lg text-white">light_mode</span>
+                </div>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Overlay / Radial UI</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Always-on overlay and radial menu</p>
+                </div>
+              </div>
+
+              <!-- feature 2 -->
+              <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-lg border border-blue-500/40 flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-lg text-white">rate_review</span>
+                </div>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Suggestions / Review Cards</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">View, compare, and review suggestions and data</p>
+                </div>
+              </div>
+
+              <!-- feature 3 -->
+              <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-full border border-blue-500/40 flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-lg text-white">check_circle</span>
+                </div>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Action Engine</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Process selections, execute commands, and handle parameters</p>
+                </div>
+              </div>
+
+              <!-- feature 4 -->
+              <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-full border border-blue-500/40 flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-lg text-white">person</span>
+                </div>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Profiles / Workflows</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Manage profiles and workflows</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Connection Arrow 1 -->
+        <div class="flex items-center justify-center text-blue-500 self-center py-2 lg:py-0">
+          <!-- Right Arrow (Down on mobile) -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 rotate-90 lg:rotate-0">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+
+        <!-- Block 2: Actions (Center Middleware) -->
+        <div class="flex-1 flex flex-col justify-start">
+          
+          <div class="flex-1 border border-purple-500/30 bg-bg-card/10 rounded-2xl p-6 flex flex-col justify-start hover:border-purple-500/50 transition-all space-y-4">
+            <!-- Feature Cards (Stacked cards) -->
+            
+            <!-- action 1 -->
+            <div class="border border-purple-500/10 bg-white/[0.02] rounded-xl p-3 flex items-center space-x-4 hover:border-purple-500/30 transition-all">
+              <div class="w-8 h-8 rounded-lg border border-purple-500/40 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-lg text-white">terminal</span>
+              </div>
+              <div>
+                <h5 class="text-xs font-semibold text-white m-0">Command Execution</h5>
+                <p class="text-[10px] text-text-secondary font-light m-0 mt-0.5">Run CLI commands and scripts</p>
+              </div>
+            </div>
+
+            <!-- action 2 -->
+            <div class="border border-purple-500/10 bg-white/[0.02] rounded-xl p-3 flex items-center space-x-4 hover:border-purple-500/30 transition-all">
+              <div class="w-8 h-8 rounded-lg border border-purple-500/40 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-lg text-white">link</span>
+              </div>
+              <div>
+                <h5 class="text-xs font-semibold text-white m-0">API Integration</h5>
+                <p class="text-[10px] text-text-secondary font-light m-0 mt-0.5">Call local and remote APIs</p>
+              </div>
+            </div>
+
+            <!-- action 3 -->
+            <div class="border border-purple-500/10 bg-white/[0.02] rounded-xl p-3 flex items-center space-x-4 hover:border-purple-500/30 transition-all">
+              <div class="w-8 h-8 rounded-lg border border-purple-500/40 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-lg text-white">keyboard</span>
+              </div>
+              <div>
+                <h5 class="text-xs font-semibold text-white m-0">HID Control</h5>
+                <p class="text-[10px] text-text-secondary font-light m-0 mt-0.5">Control devices via HID</p>
+              </div>
+            </div>
+
+            <!-- action 4 -->
+            <div class="border border-purple-500/10 bg-white/[0.02] rounded-xl p-3 flex items-center space-x-4 hover:border-purple-500/30 transition-all">
+              <div class="w-8 h-8 rounded-lg border border-purple-500/40 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-lg text-white">keyboard_command_key</span>
+              </div>
+              <div>
+                <h5 class="text-xs font-semibold text-white m-0">Shortcut Automation</h5>
+                <p class="text-[10px] text-text-secondary font-light m-0 mt-0.5">Trigger shortcuts and hotkeys</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Connection Arrow 2 -->
+        <div class="flex items-center justify-center text-purple-500 self-center py-2 lg:py-0">
+          <!-- Right Arrow (Down on mobile) -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 rotate-90 lg:rotate-0">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+
+        <!-- Block 3: Apps & AI (Destination) -->
+        <div class="flex-1 flex flex-col justify-start">
+          
+          <div class="flex-1 border border-emerald-500/30 bg-bg-card/10 rounded-2xl p-6 flex flex-col justify-start hover:border-emerald-500/50 transition-all">
+            <!-- Features list (Simple list) -->
+            <div class="space-y-4 pt-1">
+              
+              <!-- app 1 -->
+              <div class="flex items-center space-x-4">
+                <span class="material-symbols-outlined text-xl text-emerald-400 w-8 h-8 flex items-center justify-center flex-shrink-0">auto_awesome</span>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">AI Assistants</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">ChatGPT, Claude, Gemini, and more</p>
+                </div>
+              </div>
+
+              <!-- app 2 -->
+              <div class="flex items-center space-x-4">
+                <span class="material-symbols-outlined text-xl text-emerald-400 w-8 h-8 flex items-center justify-center flex-shrink-0">terminal</span>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Terminal & CLI</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Terminal, iTerm, PowerShell, etc.</p>
+                </div>
+              </div>
+
+              <!-- app 3 -->
+              <div class="flex items-center space-x-4">
+                <span class="material-symbols-outlined text-xl text-emerald-400 w-8 h-8 flex items-center justify-center flex-shrink-0">deployed_code</span>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Developer Tools</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">VS Code, Cursor, Git, and more</p>
+                </div>
+              </div>
+
+              <!-- app 4 -->
+              <div class="flex items-center space-x-4">
+                <span class="material-symbols-outlined text-xl text-emerald-400 w-8 h-8 flex items-center justify-center flex-shrink-0">desktop_windows</span>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Desktop Apps</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Figma, Photoshop, Blender, etc.</p>
+                </div>
+              </div>
+
+              <!-- app 5 -->
+              <div class="flex items-center space-x-4">
+                <span class="material-symbols-outlined text-xl text-emerald-400 w-8 h-8 flex items-center justify-center flex-shrink-0">folder</span>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Files & Storage</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Local files, cloud drives, databases</p>
+                </div>
+              </div>
+
+              <!-- app 6 -->
+              <div class="flex items-center space-x-4">
+                <span class="material-symbols-outlined text-xl text-emerald-400 w-8 h-8 flex items-center justify-center flex-shrink-0">language</span>
+                <div>
+                  <h5 class="text-xs font-semibold text-white m-0">Web Services</h5>
+                  <p class="text-[10px] text-text-secondary font-light leading-normal m-0 mt-0.5">Notion, Slack, Gmail, and more</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
