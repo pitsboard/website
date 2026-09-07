@@ -6,14 +6,8 @@ const {
 } = lpContent.hero;
 ---
 
-<section id="hero" class="relative min-h-[90vh] sm:min-h-[95vh] lg:min-h-screen flex items-start sm:items-center justify-start pt-28 pb-12 sm:py-24 px-6 lg:px-16 overflow-hidden border-b border-border-color">
+<section id="hero" class="relative min-h-[85vh] sm:min-h-[95vh] lg:min-h-screen flex items-start sm:items-center justify-start pt-20 pb-10 sm:py-24 px-6 lg:px-16 overflow-hidden border-b border-border-color">
   
-  <!-- Header Logo (PTB PITSBOARD) -->
-  <div class="absolute top-8 left-6 lg:left-16 flex items-center space-x-2 z-30 select-none">
-    <span class="px-1.5 py-0.5 bg-white text-black font-mono text-[9px] font-bold rounded-sm tracking-tighter">PTB</span>
-    <span class="text-white/80 font-mono text-[10px] font-bold tracking-widest uppercase">PitsBoard</span>
-  </div>
-
   <!-- Background Cover Image (Mockup Visual) -->
   <div class="absolute inset-0 z-0 select-none pointer-events-none">
     <!-- Desktop Cover Image -->
@@ -34,7 +28,7 @@ const {
 
   <!-- Content (Exactly aligned with the user mockup) -->
   <div class="max-w-7xl w-full mx-auto relative z-20">
-    <div class="max-w-xl flex flex-col justify-center space-y-6">
+    <div class="max-w-xl flex flex-col justify-center space-y-2.5 sm:space-y-6">
       
       <!-- Red Badge tag -->
       <div>
@@ -45,28 +39,28 @@ const {
       </div>
 
       <!-- Hero Typography -->
-      <div class="space-y-4">
-        <h1 class="text-4xl sm:text-5xl lg:text-[62px] font-extrabold tracking-tight text-white uppercase leading-[1.02] font-header">
+      <div class="space-y-2 sm:space-y-4">
+        <h1 class="text-3xl sm:text-5xl lg:text-[62px] font-extrabold tracking-tight text-white uppercase leading-[1.05] sm:leading-[1.02] font-header">
           {titleLine1}<br/>
           <span class="text-white">{titleLine2}</span>
         </h1>
         
         <!-- Description (Constrained width for perfect text wrap like mockup) -->
-        <p class="text-[13px] sm:text-[14px] text-text-secondary font-light max-w-[340px] sm:max-w-[420px] leading-relaxed">
+        <p class="text-[12px] sm:text-[14px] text-text-secondary font-light max-w-[320px] sm:max-w-[420px] leading-snug sm:leading-relaxed">
           {subtitle}
         </p>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-wrap gap-4 pt-2">
+      <!-- Action Buttons (Fits side-by-side on 375px iPhone SE cleanly) -->
+      <div class="flex flex-row flex-wrap gap-2.5 sm:gap-4 pt-1 sm:pt-2">
         <!-- Request Access Button -->
-        <a href="mailto:devkit@pitsboard.com?subject=DevKit Access Request" class="inline-flex items-center justify-center px-6 py-3 bg-accent-red hover:bg-accent-red/90 text-[10px] font-mono tracking-wider font-bold rounded text-white transition-all shadow-lg shadow-accent-red/15 uppercase space-x-2">
+        <a href="mailto:contact@pitsbord.com?subject=DevKit Access Request" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-accent-red hover:bg-accent-red/90 text-[10px] font-mono tracking-wider font-bold rounded text-white transition-all shadow-lg shadow-accent-red/15 uppercase space-x-1.5">
           <span>{ctaPrimary}</span>
           <span class="text-xs font-sans">→</span>
         </a>
         
         <!-- Join Discord Button -->
-        <a href="https://discord.gg/pitsboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 border border-border-color bg-bg-dark/40 hover:bg-border-color/30 text-[10px] font-mono tracking-wider font-bold rounded text-white transition-all uppercase space-x-2">
+        <a href="https://discord.gg/nHmPJMR9u" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 border border-border-color bg-bg-dark/40 hover:bg-border-color/30 text-[10px] font-mono tracking-wider font-bold rounded text-white transition-all uppercase space-x-1.5">
           <span>{ctaSecondary}</span>
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 127.14 96.36" aria-hidden="true">
             <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.45-5c.87-.64,1.72-1.32,2.53-2a75.76,75.76,0,0,0,72.76,0c.81.7,1.66,1.38,2.53,2a68.43,68.43,0,0,1-10.45,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31.06-18.83C129.8,54.65,123.46,31.58,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/>

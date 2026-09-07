@@ -46,17 +46,17 @@ const notesLink = `/research/${latestLogId}`;
       /* --- Landing Page Layout (Single Screen Scroll-Snap) --- */
       <div class="relative flex flex-col min-h-screen">
         <!-- Stark Linear-style Fixed Header -->
-        <header class="fixed top-0 left-0 w-full h-16 bg-bg-primary/80 backdrop-blur-xl border-b border-border-color flex items-center justify-between px-6 lg:px-16 z-50 transition-all">
+        <header class="fixed top-0 left-0 w-full h-16 bg-bg-primary/80 backdrop-blur-xl border-b border-border-color flex items-center justify-between px-3.5 sm:px-6 lg:px-16 z-50 transition-all">
           <a href="/" class="flex items-center text-white text-base font-bold tracking-tighter select-none uppercase font-header">
             <span class="bg-white text-black px-1.5 py-0.5 rounded-sm mr-1 font-extrabold text-xs">PTB</span>
-            <span class="font-light tracking-wide text-sm text-text-secondary group-hover:text-white transition-colors">PitsBoard</span>
+            <span class="font-light tracking-wide text-xs sm:text-sm text-text-secondary group-hover:text-white transition-colors">PitsBoard</span>
           </a>
           
-          <nav class="flex items-center space-x-8">
-            <a href={notesLink} class="text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Notes</a>
-            <a href="https://discord.gg/pitsboard" target="_blank" rel="noopener noreferrer" class="text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Discord</a>
-            <a href="https://x.com/pitsboard" target="_blank" rel="noopener noreferrer" class="text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">X</a>
-            <a href="mailto:hello@pitsboard.com" class="text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Email</a>
+          <nav class="flex items-center space-x-3.5 sm:space-x-8">
+            <a href={notesLink} class="text-[11px] sm:text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Notes</a>
+            <a href="https://discord.gg/nHmPJMR9u" target="_blank" rel="noopener noreferrer" class="text-[11px] sm:text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Discord</a>
+            <a href="https://x.com/PitsBoardDev" target="_blank" rel="noopener noreferrer" class="text-[11px] sm:text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">X</a>
+            <a href="mailto:contact@pitsbord.com" class="text-[11px] sm:text-xs font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Email</a>
           </nav>
         </header>
 
@@ -73,9 +73,9 @@ const notesLink = `/research/${latestLogId}`;
             
             <nav class="flex items-center space-x-8">
               <a href={notesLink} class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Notes</a>
-              <a href="https://discord.gg/pitsboard" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Discord</a>
-              <a href="https://x.com/pitsboard" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">X</a>
-              <a href="mailto:hello@pitsboard.com" class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Email</a>
+              <a href="https://discord.gg/nHmPJMR9u" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Discord</a>
+              <a href="https://x.com/PitsBoardDev" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">X</a>
+              <a href="mailto:contact@pitsbord.com" class="text-[10px] font-mono tracking-wider text-text-secondary hover:text-white transition-colors uppercase">Email</a>
             </nav>
           </div>
         </footer>

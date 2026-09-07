@@ -23,58 +23,74 @@ const { tag, title, subtitle, profiles } = lpContent.overlayExamples;
         </p>
       </div>
 
-      <!-- 4-Grid HUD Examples -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- 4-Grid HUD Examples (PC: Vertical Cards / SP: Horizontal Selectors) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
         
         <!-- Example 1: Image Editing -->
         <div
-          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-4 flex flex-row lg:flex-col items-center lg:items-stretch justify-between lg:justify-start gap-4 hover:border-accent-orange/40 transition-all cursor-pointer group h-full"
           data-img-src="/images/placeholders/overlay-profile-01_800x450_16-9.png"
         >
-          <div class="pointer-events-none">
-            <ImagePlaceholder aspectRatio="aspect-video" label="FIGMA PROFILE UI" desc="Figma control overlay workspace layout." className="w-full border-none bg-bg-dark/50" />
+          <div class="w-36 sm:w-44 lg:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 lg:order-1 pointer-events-none">
+            <img src="/images/placeholders/overlay-profile-01_800x450_16-9.png" alt={profiles[0].label} class="w-full h-full object-cover" />
           </div>
-          <div class="space-y-3 pointer-events-none">
-            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[0].label}</span>
+          <div class="flex-1 lg:flex-initial min-w-0 space-y-1 order-1 lg:order-2 pointer-events-none">
+            <span class="font-mono text-[9px] text-accent-orange font-bold uppercase block">PROFILE 01</span>
+            <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{profiles[0].label}</h4>
+            <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 lg:line-clamp-none">
+              Contextual workspace controls overlay.
+            </p>
           </div>
         </div>
 
         <!-- Example 2: 3D Modeling -->
         <div
-          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-4 flex flex-row lg:flex-col items-center lg:items-stretch justify-between lg:justify-start gap-4 hover:border-accent-orange/40 transition-all cursor-pointer group h-full"
           data-img-src="/images/placeholders/overlay-profile-02_800x450_16-9.png"
         >
-          <div class="pointer-events-none">
-            <ImagePlaceholder aspectRatio="aspect-video" label="BLENDER PROFILE UI" desc="Blender 3D view control overlay layout." className="w-full border-none bg-bg-dark/50" />
+          <div class="w-36 sm:w-44 lg:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 lg:order-1 pointer-events-none">
+            <img src="/images/placeholders/overlay-profile-02_800x450_16-9.png" alt={profiles[1].label} class="w-full h-full object-cover" />
           </div>
-          <div class="space-y-3 pointer-events-none">
-            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[1].label}</span>
+          <div class="flex-1 lg:flex-initial min-w-0 space-y-1 order-1 lg:order-2 pointer-events-none">
+            <span class="font-mono text-[9px] text-accent-orange font-bold uppercase block">PROFILE 02</span>
+            <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{profiles[1].label}</h4>
+            <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 lg:line-clamp-none">
+              Viewport layout and key shortcuts.
+            </p>
           </div>
         </div>
 
         <!-- Example 3: Music Production -->
         <div
-          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-4 flex flex-row lg:flex-col items-center lg:items-stretch justify-between lg:justify-start gap-4 hover:border-accent-orange/40 transition-all cursor-pointer group h-full"
           data-img-src="/images/placeholders/overlay-profile-03_800x450_16-9.png"
         >
-          <div class="pointer-events-none">
-            <ImagePlaceholder aspectRatio="aspect-video" label="VSCODE PROFILE UI" desc="VS Code editor editor mapping layout." className="w-full border-none bg-bg-dark/50" />
+          <div class="w-36 sm:w-44 lg:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 lg:order-1 pointer-events-none">
+            <img src="/images/placeholders/overlay-profile-03_800x450_16-9.png" alt={profiles[2].label} class="w-full h-full object-cover" />
           </div>
-          <div class="space-y-3 pointer-events-none">
-            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[2].label}</span>
+          <div class="flex-1 lg:flex-initial min-w-0 space-y-1 order-1 lg:order-2 pointer-events-none">
+            <span class="font-mono text-[9px] text-accent-orange font-bold uppercase block">PROFILE 03</span>
+            <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{profiles[2].label}</h4>
+            <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 lg:line-clamp-none">
+              Editor keymap and command palette.
+            </p>
           </div>
         </div>
 
         <!-- Example 4: Video Editing -->
         <div
-          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-5 space-y-4 flex flex-col justify-between hover:border-accent-orange/40 transition-all cursor-pointer group"
+          class="overlay-example-card border border-border-color bg-bg-card/25 rounded-md p-4 flex flex-row lg:flex-col items-center lg:items-stretch justify-between lg:justify-start gap-4 hover:border-accent-orange/40 transition-all cursor-pointer group h-full"
           data-img-src="/images/placeholders/overlay-profile-04_800x450_16-9.png"
         >
-          <div class="pointer-events-none">
-            <ImagePlaceholder aspectRatio="aspect-video" label="SPOTIFY PROFILE UI" desc="Spotify system-level mapping profile." className="w-full border-none bg-bg-dark/50" />
+          <div class="w-36 sm:w-44 lg:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 lg:order-1 pointer-events-none">
+            <img src="/images/placeholders/overlay-profile-04_800x450_16-9.png" alt={profiles[3].label} class="w-full h-full object-cover" />
           </div>
-          <div class="space-y-3 pointer-events-none">
-            <span class="font-mono text-xs text-accent-orange font-semibold uppercase block">{profiles[3].label}</span>
+          <div class="flex-1 lg:flex-initial min-w-0 space-y-1 order-1 lg:order-2 pointer-events-none">
+            <span class="font-mono text-[9px] text-accent-orange font-bold uppercase block">PROFILE 04</span>
+            <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{profiles[3].label}</h4>
+            <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 lg:line-clamp-none">
+              System media and audio routing.
+            </p>
           </div>
         </div>
 

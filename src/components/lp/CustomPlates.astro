@@ -61,86 +61,76 @@ const {
       </div>
     </div>
 
-    <!-- Lower Section: 4 Interactive Plates Grid -->
-    <div id="custom-plates-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch pt-4">
+    <!-- Lower Section: 4 Interactive Plates (PC: Vertical Cards / SP: Horizontal Selectors) -->
+    <div id="custom-plates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch pt-2">
       
       <!-- Plate 1: Anodized Aluminum -->
       <div
-        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-col justify-between h-full hover:border-accent-orange/40 transition-all group cursor-pointer"
+        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-row md:flex-col items-center md:items-stretch justify-between md:justify-start gap-4 hover:border-accent-orange/40 transition-all group cursor-pointer h-full"
         data-img-src="/images/placeholders/custom-plates-01_800x450_16-9.png"
         data-label="STANDARD // ALUMINUM PLATE"
       >
-        <div class="flex flex-col space-y-4 pointer-events-none">
-          <!-- Visual Mockup -->
-          <div class="relative aspect-video rounded border border-border-color/60 bg-bg-dark/40 flex items-center justify-center overflow-hidden">
-            <ImagePlaceholder aspectRatio="aspect-video" label="ALUMINUM PLATE" desc="Raw silver finish." className="absolute inset-0 border-none bg-transparent" />
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-sm font-semibold text-white">{aluminumTitle}</h4>
-            <p class="text-xs text-text-secondary font-light leading-relaxed">
-              {aluminumDesc}
-            </p>
-          </div>
+        <!-- Thumbnail Image (Top on PC, Right on SP) -->
+        <div class="w-36 sm:w-44 md:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 md:order-1 pointer-events-none">
+          <img src="/images/placeholders/custom-plates-01_800x450_16-9.png" alt={aluminumTitle} class="w-full h-full object-cover" />
+        </div>
+        <!-- Text Content (Bottom on PC, Left on SP) -->
+        <div class="flex-1 md:flex-initial min-w-0 space-y-1.5 order-1 md:order-2 pointer-events-none">
+          <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{aluminumTitle}</h4>
+          <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 md:line-clamp-none">
+            {aluminumDesc}
+          </p>
         </div>
       </div>
 
       <!-- Plate 2: Solid Brass -->
       <div
-        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-col justify-between h-full hover:border-accent-orange/40 transition-all group cursor-pointer"
+        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-row md:flex-col items-center md:items-stretch justify-between md:justify-start gap-4 hover:border-accent-orange/40 transition-all group cursor-pointer h-full"
         data-img-src="/images/placeholders/custom-plates-02_800x450_16-9.png"
         data-label="DUAL DIAL // SOLID BRASS PLATE"
       >
-        <div class="flex flex-col space-y-4 pointer-events-none">
-          <!-- Visual Mockup -->
-          <div class="relative aspect-video rounded border border-border-color/60 bg-bg-dark/40 flex items-center justify-center overflow-hidden">
-            <ImagePlaceholder aspectRatio="aspect-video" label="BRASS PLATE" desc="Heavy gold patina finish." className="absolute inset-0 border-none bg-transparent" />
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-sm font-semibold text-white">{brassTitle}</h4>
-            <p class="text-xs text-text-secondary font-light leading-relaxed">
-              {brassDesc}
-            </p>
-          </div>
+        <div class="w-36 sm:w-44 md:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 md:order-1 pointer-events-none">
+          <img src="/images/placeholders/custom-plates-02_800x450_16-9.png" alt={brassTitle} class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1 md:flex-initial min-w-0 space-y-1.5 order-1 md:order-2 pointer-events-none">
+          <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{brassTitle}</h4>
+          <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 md:line-clamp-none">
+            {brassDesc}
+          </p>
         </div>
       </div>
 
       <!-- Plate 3: Walnut Wood -->
       <div
-        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-col justify-between h-full hover:border-accent-orange/40 transition-all group cursor-pointer"
+        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-row md:flex-col items-center md:items-stretch justify-between md:justify-start gap-4 hover:border-accent-orange/40 transition-all group cursor-pointer h-full"
         data-img-src="/images/placeholders/custom-plates-03_800x450_16-9.png"
         data-label="DUAL SLIDER // WALNUT WOOD PLATE"
       >
-        <div class="flex flex-col space-y-4 pointer-events-none">
-          <!-- Visual Mockup -->
-          <div class="relative aspect-video rounded border border-border-color/60 bg-bg-dark/40 flex items-center justify-center overflow-hidden">
-            <ImagePlaceholder aspectRatio="aspect-video" label="WALNUT PLATE" desc="Organic oil finish." className="absolute inset-0 border-none bg-transparent" />
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-sm font-semibold text-white">{walnutTitle}</h4>
-            <p class="text-xs text-text-secondary font-light leading-relaxed">
-              {walnutDesc}
-            </p>
-          </div>
+        <div class="w-36 sm:w-44 md:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 md:order-1 pointer-events-none">
+          <img src="/images/placeholders/custom-plates-03_800x450_16-9.png" alt={walnutTitle} class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1 md:flex-initial min-w-0 space-y-1.5 order-1 md:order-2 pointer-events-none">
+          <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{walnutTitle}</h4>
+          <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 md:line-clamp-none">
+            {walnutDesc}
+          </p>
         </div>
       </div>
 
       <!-- Plate 4: Frosted Glass / Acrylic -->
       <div
-        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-col justify-between h-full hover:border-accent-orange/40 transition-all group cursor-pointer"
+        class="plate-card border border-border-color bg-bg-card/20 rounded-md p-4 flex flex-row md:flex-col items-center md:items-stretch justify-between md:justify-start gap-4 hover:border-accent-orange/40 transition-all group cursor-pointer h-full"
         data-img-src="/images/placeholders/custom-plates-04_800x450_16-9.png"
         data-label="TRACK PAD // FROSTED GLASS PLATE"
       >
-        <div class="flex flex-col space-y-4 pointer-events-none">
-          <!-- Visual Mockup -->
-          <div class="relative aspect-video rounded border border-border-color/60 bg-bg-dark/40 flex items-center justify-center overflow-hidden">
-            <ImagePlaceholder aspectRatio="aspect-video" label="ACRYLIC PLATE" desc="Diffuses LED illumination." className="absolute inset-0 border-none bg-transparent" />
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-sm font-semibold text-white">{acrylicTitle}</h4>
-            <p class="text-xs text-text-secondary font-light leading-relaxed">
-              {acrylicDesc}
-            </p>
-          </div>
+        <div class="w-36 sm:w-44 md:w-full aspect-video flex-shrink-0 relative rounded overflow-hidden border border-border-color/60 bg-bg-dark/40 order-2 md:order-1 pointer-events-none">
+          <img src="/images/placeholders/custom-plates-04_800x450_16-9.png" alt={acrylicTitle} class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1 md:flex-initial min-w-0 space-y-1.5 order-1 md:order-2 pointer-events-none">
+          <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-accent-orange transition-colors m-0 truncate">{acrylicTitle}</h4>
+          <p class="text-xs sm:text-sm text-text-secondary font-light leading-snug m-0 line-clamp-2 md:line-clamp-none">
+            {acrylicDesc}
+          </p>
         </div>
       </div>
 
